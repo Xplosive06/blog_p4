@@ -20,7 +20,7 @@ class PostsManager
 
   public function delete(Post $post)
   {
-    $this->_db->exec('DELETE FROM posts WHERE id = '.$perso->id());
+    $this->_db->exec('DELETE FROM posts WHERE id = '.$post->id());
   }
 
   public function get($id)
@@ -31,7 +31,8 @@ class PostsManager
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
     return new Post($donnees);
-  }
+  
+}
 
   public function getList()
   {
@@ -49,8 +50,9 @@ class PostsManager
 
   public function update(Post $post)
   {
-    $q = $this->_db->prepare('UPDATE posts SET title = :title, content = :content, WHERE id = :id');
+    $q = $this->_db->prepare('UPDATE posts SET id = :id, title = :title, content = :content, creation_date = now() WHERE id = :id');
 
+    $q->bindValue(':id', $post->id(), PDO::PARAM_INT);
     $q->bindValue(':title', $post->title());
     $q->bindValue(':content', $post->content());
 

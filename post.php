@@ -6,9 +6,16 @@ class Post
 	private $_content;
 	private $_creation_date;
 
+	 public function __construct($value = array())
+    {
+        if(!empty($value))
+            $this->hydrate($value);
+    }
+
 	// Un tableau de données doit être passé à la fonction (d'où le préfixe « array »).
 	public function hydrate(array $donnees)
 	{
+
 		foreach ($donnees as $key => $value)
 		{
     // On récupère le nom du setter correspondant à l'attribut.
@@ -69,12 +76,17 @@ class Post
 	
 	public function setContent($content)
 	{
-		$content = (int) $content;
 		
 		if (is_string($content))
 		{
 			$this->_content = $content;
 		}
+	}
+
+	public function setCreation_date($creation_date)
+	{
+		$this->_creation_date = $creation_date;
+
 	}
 	
 }
