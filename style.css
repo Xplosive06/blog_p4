@@ -2,13 +2,6 @@ h1, h3
 {
     text-align:center;
 }
-h3
-{
-    background-color:black;
-    color:white;
-    font-size:0.9em;
-    margin-bottom:0px;
-}
 
 body {
     padding-top: 20px;
@@ -36,11 +29,6 @@ body {
     padding: 2%;
 }
 
-.comment-button{
-    display: flex;
-    justify-content: space-between;
-}
-
 .news
 {
     width:90%;
@@ -51,4 +39,60 @@ a
 {
     text-decoration: none;
     color: blue;
+}
+
+.form-bloc, .flex-space {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style all input fields */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Style the container for inputs */
+.container {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display: none;
+  position: relative;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "\002714";
+}
+
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -10px;
+  content: "\2716";
 }

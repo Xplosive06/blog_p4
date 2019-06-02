@@ -1,5 +1,5 @@
 <?php
-class PostsManager
+class PostManager
 {
   private $_db; // Instance de PDO
 
