@@ -22,11 +22,11 @@
                 <label for="title">Titre: </label><input class="input-sm" id="title" type="text" name="title" required><br></div>
                 <div class="input-group">
                     <label for="content">Message: </label><textarea class="input-lg" id="content" type="text" name="content" required></textarea><br></div>
-                    <button type="submit" class="btn-default">Envoyer</button>
+                    <button type="submit" class="btn-success">Envoyer</button>
 
                 </form>
 
-                <p>Derniers billets du blog :</p>
+                <h1>Derniers billets du blog :</h1>
 
                 <?php
                 try

@@ -10,6 +10,11 @@ h3
     margin-bottom:0px;
 }
 
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .bloc-page{
     width: 90%;
     margin: auto;
