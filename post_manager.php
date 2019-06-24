@@ -1,6 +1,6 @@
-<?php
-class PostManager
-{
+  <?php
+  class PostManager
+  {
   private $_db; // Instance de PDO
 
   public function __construct($db)
@@ -31,8 +31,8 @@ class PostManager
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
     return new Post($donnees);
-  
-}
+    
+  }
 
   public function getList()
   {

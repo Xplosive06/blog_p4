@@ -17,10 +17,10 @@
 
 		<h1>Créer un nouveau compte</h1>
 
-		<form class="panel-primary" method="post" action="main.php">
-					<div class="panel-heading">Nouveau compte</div>
+		<form class="panel-primary" method="post" action="connection_new.php">
+			<div class="panel-heading">Nouveau compte</div>
 			<div class="form-bloc">
-					<div class="left-side-form">
+				<div class="left-side-form">
 					<div class="input-group">
 						<label for="nickname">Pseudo: </label><input class="input-sm" id="nickname" type="text" name="nickname" autocomplete="username" required><br></div>
 						<div class="input-group">

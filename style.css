@@ -1,49 +1,54 @@
 h1, h3
 {
-    text-align:center;
+  text-align:center;
 }
 
 body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .bloc-page{
-    width: 90%;
-    margin: auto;
+  width: 90%;
+  margin: auto;
 }
 
 .panel-primary{
-    border: black solid;
-    padding: 2%;
+  border: black solid;
+  padding: 2%;
+}
+
+.my-header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .input-group{
-    padding: 2%;
+  padding: 2%;
 }
 
 .content-area
 {
-    background-color:#CCCCCC;
-    margin-top:0px;
-    padding: 2%;
+  background-color:#CCCCCC;
+  margin-top:0px;
+  padding: 2%;
 }
 
 .news
 {
-    width:90%;
-    margin:auto;
+  width:90%;
+  margin:auto;
 }
 
 a
 {
-    text-decoration: none;
-    color: blue;
+  text-decoration: none;
+  color: blue;
 }
 
 .form-bloc, .flex-space {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Style all input fields */
@@ -95,4 +100,18 @@ input[type=submit] {
   position: relative;
   left: -10px;
   content: "\2716";
+}
+
+.admin-block {
+  display: flex;
+}
+
+.admin-navbar {
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+}
+
+.admin-main-part {
+  width: 80%;
 }

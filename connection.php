@@ -1,3 +1,11 @@
+<?php session_start(); 
+
+if(isset($_SESSION['nickname'])){ // OR isset($_SESSION['user']), if array
+	$user = $_SESSION['nickname'];
+}else{
+	$user = "non connecté";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,22 +21,22 @@
 <body>
 	<div class="bloc-page">
 
-	<header><a href="main_page.php">accueil</a></header>
+		<header><div class="my-header"><a href="main_page.php">accueil</a> <div class="user-right"><?php echo $user; ?></div></div></header>
 
-	<h1>Connexion</h1>
+		<h1>Connexion</h1>
 
-	<form class="panel-primary" method="post" action="main.php">
-		<div class="panel-heading">Connexion</div>
-		<div class="input-group">
-			<label for="nickname">Pseudo: </label><input class="input-sm" id="nickname" type="text" name="nickname" required><br></div>
+		<form class="panel-primary" method="post" action="connection_check.php">
+			<div class="panel-heading">Connexion</div>
 			<div class="input-group">
-				<label for="password">Mot de passe: </label><input class="input-sm" id="password" type="password" name="password" required></input><br></div>
-				<div class="flex-space">
-				<button type="submit" class="btn-success">Envoyer</button>
-				<a href="new_connection.php">Pas encore de compte?</a>
-				</div>
+				<label for="nickname">Pseudo: </label><input class="input-sm" id="nickname" type="text" name="nickname" required><br></div>
+				<div class="input-group">
+					<label for="password">Mot de passe: </label><input class="input-sm" id="password" type="password" name="password" required></input><br></div>
+					<div class="flex-space">
+						<button type="submit" class="btn-success">Envoyer</button>
+						<a href="new_connection.php">Pas encore de compte?</a>
+					</div>
 
-			</form>
+				</form>
 
 			</div>
 

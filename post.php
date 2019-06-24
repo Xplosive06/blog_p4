@@ -6,11 +6,11 @@ class Post
 	private $_content;
 	private $_creation_date;
 
-	 public function __construct($value = array())
-    {
-        if(!empty($value))
-            $this->hydrate($value);
-    }
+	public function __construct($value = array())
+	{
+		if(!empty($value))
+			$this->hydrate($value);
+	}
 
 	// Un tableau de données doit être passé à la fonction (d'où le préfixe « array »).
 	public function hydrate(array $donnees)

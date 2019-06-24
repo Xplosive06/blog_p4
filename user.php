@@ -1,4 +1,5 @@
 <?php
+
 class User
 {
 	private $_id;
@@ -7,11 +8,11 @@ class User
 	private $_posts_ids;
 	private $_creation_date;
 
-	 public function __construct($value = array())
-    {
-        if(!empty($value))
-            $this->hydrate($value);
-    }
+	public function __construct($value = array())
+	{
+		if(!empty($value))
+			$this->hydrate($value);
+	}
 
 	// Un tableau de données doit être passé à la fonction (d'où le préfixe « array »).
 	public function hydrate(array $donnees)
@@ -47,11 +48,6 @@ class User
 	{
 		return $this->_password;
 	}
-	
-	public function posts_ids()
-	{
-		return $this->_posts_ids;
-	}
 
 	public function creation_date()
 	{
@@ -77,6 +73,7 @@ class User
 		if (is_string($nickname))
 		{
 			$this->_nickname = $nickname;
+			$_SESSION['nickname'] = $nickname;
 		}
 	}
 	
@@ -85,14 +82,9 @@ class User
 		
 		if (is_string($password))
 		{
+			password_hash($password, PASSWORD_DEFAULT);
 			$this->_password = $password;
 		}
-	}
-
-	public function setPosts_ids($posts_ids)
-	{
-		$this->_posts_ids = $posts_ids;
-
 	}
 
 	public function setCreation_date($creation_date)
