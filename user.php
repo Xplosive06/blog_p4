@@ -5,7 +5,6 @@ class User
 	private $_id;
 	private $_nickname;
 	private $_password;
-	private $_posts_ids;
 	private $_creation_date;
 
 	public function __construct($value = array())
@@ -94,4 +93,3 @@ class User
 	}
 	
 }
-?>

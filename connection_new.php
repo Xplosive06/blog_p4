@@ -39,11 +39,10 @@ if (isset($_POST['nickname']) && isset($_POST['password']))
 
 	$_SESSION['nickname'] = $new_user->nickname();
 
-	header('Location: main_page.php');
+	header('Location: index.php');
 
 	}
 
 /*	*/
 
 }
-?>

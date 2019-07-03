@@ -13,7 +13,7 @@
 <body>
 	<div class="bloc-page">
 
-		<header><a href="main_page.php">accueil</a></header>
+		<header><a href="index.php">accueil</a></header>
 
 		<h1>Créer un nouveau compte</h1>
 

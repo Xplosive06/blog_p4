@@ -1,6 +1,6 @@
 <?php session_start(); 
 
-if(isset($_SESSION['nickname'])){ // OR isset($_SESSION['user']), if array
+if(isset($_SESSION['nickname'])){ 
 	$user = $_SESSION['nickname'];
 }else{
 	$user = "non connecté";
@@ -21,7 +21,7 @@ if(isset($_SESSION['nickname'])){ // OR isset($_SESSION['user']), if array
 <body>
 	<div class="bloc-page">
 
-		<header><div class="my-header"><a href="main_page.php">accueil</a> <div class="user-right"><?php echo $user; ?></div></div></header>
+		<header><div class="my-header"><a href="index.php">accueil</a> <div class="user-right"><?php echo $user; ?></div></div></header>
 
 		<h1>Connexion</h1>
 

@@ -22,7 +22,7 @@ $user = $_SESSION['nickname'];
 
 <body>
 	<div class="bloc-page">
-		<header><div class="my-header"><a href="main_page.php">accueil</a> <div class="user-right"><?php echo $user; ?></div></div></header>
+		<header><div class="my-header"><a href="index.php">accueil</a> <div class="user-right"><?php echo $user; ?></div></div></header>
 
 		<h1>Administration</h1>
 

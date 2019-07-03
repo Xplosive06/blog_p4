@@ -28,7 +28,7 @@ if ($isPasswordCorrect) {
 		header('Location: admin_page.php');
 	}
 	else {
-		header('Location: main_page.php');
+		header('Location: index.php');
 	}
         
         
@@ -39,4 +39,3 @@ if ($isPasswordCorrect) {
 
 
 }
-?>

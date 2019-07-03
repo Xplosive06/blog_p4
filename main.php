@@ -28,7 +28,7 @@ if (isset($_POST['title']) && isset($_POST['content']))
 		echo "Title ou content incorrects";
 	}
 
-	header('Location: main_page.php');
+	header('Location: index.php');
 
 }
 else if (isset($_POST['id_director'])){
@@ -38,7 +38,7 @@ else if (isset($_POST['id_director'])){
 	$post = $post_manager->get($id_director);
 	$post_manager->delete($post);
 
-	header('Location: main_page.php');
+	header('Location: index.php');
 }
 
 
@@ -48,7 +48,3 @@ $postsArray = $post_manager->getList();
 foreach ($postsArray as $key => $value) {
 	echo '[' . $key . '] vaut ' . $value->creation_date() . '<br />';
 }*/
-
-
-
-?>
