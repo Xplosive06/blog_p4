@@ -1,15 +1,16 @@
 <?php session_start(); 
 
-require('model.php');
-
-$posts = getPosts();
-$users = getUsers();
-
 if(isset($_SESSION['nickname'])){ // OR isset($_SESSION['user']), if array
 $user = $_SESSION['nickname'];
 }else{
 	$user = 'Non connecté';
 }
+
+require('model.php');
+
+$posts = getPosts();
+$users = getUsers();
+
 ?>
 
 <!DOCTYPE html>
@@ -111,7 +112,7 @@ $user = $_SESSION['nickname'];
 
 							<form method="POST" action="model.php">
 
-                            <button type="submit" class="btn-danger" name="user_id" value="<?= $user->nickname()?>">Supprimer</button>
+                            <button type="submit" class="btn-danger" name="user_nickname" value="<?= $user->nickname()?>">Supprimer</button>
                         </form>
                     </div>
 

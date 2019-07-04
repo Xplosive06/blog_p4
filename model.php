@@ -75,4 +75,6 @@ if (isset($_POST['post_id'])){
 	$user_manager = new UserManager(dbConnect());
 	$user = $user_manager->get($user_nickname);
 	$user_manager->delete($user);
+
+	header('Location: admin_page.php');
 }
