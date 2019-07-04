@@ -45,10 +45,7 @@ $user = $_SESSION['nickname'];
                     </p>
                     <div class="flex-space">
                         <em><a href="post_controller.php?id=<?= $post->id() ?>">Commentaires</a></em>
-                        <form method="POST" action="main.php">
-
-                            <button type="submit" class="btn-danger" name="id_director" value="<?= $post->id()?>">Supprimer</button>
-                        </form>
+                        
                     </div>
 
                 </div>

@@ -1,5 +1,10 @@
 <?php session_start(); 
 
+require('model.php');
+
+$posts = getPosts();
+$users = getUsers();
+
 if(isset($_SESSION['nickname'])){ // OR isset($_SESSION['user']), if array
 $user = $_SESSION['nickname'];
 }else{
@@ -36,9 +41,9 @@ $user = $_SESSION['nickname'];
 				<li class="nav-item">
 					<a class="nav-link" data-toggle="pill" href="#posts">Vos publications</a>
 				</li >
-				<li class="nav-item">
-					<a class="nav-link" data-toggle="pill" href="#comments">Les commentaires</a>
-				</li>
+<!-- 				<li class="nav-item">
+	<a class="nav-link" data-toggle="pill" href="#comments">Les commentaires</a>
+</li> -->
 				<li class="nav-item">
 					<a class="nav-link" data-toggle="pill" href="#users">Gestion utilisateurs</a>
 				</li>
@@ -63,12 +68,54 @@ $user = $_SESSION['nickname'];
 
 					<div id="posts" class="tab-pane fade">
 						<h3>Tous les articles</h3>
+						<?php 
+						foreach ($posts as $key => $post) {
+
+							?>
+							<div class="bordering">
+
+							<p>
+								<p><strong>Titre : </strong><?= htmlspecialchars($post->title()); ?></p>
+								<em><strong>le</strong> <?= $post->creation_date()?></em>
+							</p>
+
+							<p><strong>Contenu :</strong>
+								<?=
+								nl2br(htmlspecialchars($post->content()));
+								?>
+							</p>
+							<em><a href="post_controller.php?id=<?= $post->id() ?>"><?=getNumberOfComments($post->id())?> Commentaires</a></em>
+							<form method="POST" action="model.php">
+
+                            <button type="submit" class="btn-danger" name="post_id" value="<?= $post->id()?>">Supprimer</button>
+                        </form>
+                    </div>
+
+						<?php } ?>
+
 					</div>
-					<div id="comments" class="tab-pane fade">
-						<h3>Tous les commentaires</h3>
-					</div>
+<!-- 					<div id="comments" class="tab-pane fade">
+	<h3>Tous les commentaires</h3>
+</div> -->
 					<div id="users" class="tab-pane fade">
 						<h3>Tous les utilisateurs</h3>
+						<?php 
+						foreach ($users as $key => $user) {
+
+							?>
+							<div class="bordering">
+
+								<div class="user_bar"><div><strong>Id : </strong><?= htmlspecialchars($user->id()); ?></div>
+								<strong><?= $user->nickname()?></strong> 
+								</div>
+
+							<form method="POST" action="model.php">
+
+                            <button type="submit" class="btn-danger" name="user_id" value="<?= $user->nickname()?>">Supprimer</button>
+                        </form>
+                    </div>
+
+						<?php } ?>
 					</div>
 				</div>
 

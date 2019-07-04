@@ -40,7 +40,7 @@ class UserManager
   {
     $users = [];
 
-    $q = $this->_db->query('SELECT id, nickname, password FROM users ORDER BY creation_date');
+    $q = $this->_db->query('SELECT id, nickname, creation_date FROM users ORDER BY creation_date');
 
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
     {

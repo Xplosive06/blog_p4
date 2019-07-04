@@ -31,12 +31,3 @@ if (isset($_POST['title']) && isset($_POST['content']))
 	header('Location: index.php');
 
 }
-else if (isset($_POST['id_director'])){
-	$id_director = $_POST['id_director'];
-
-	$post_manager = new PostManager($db);
-	$post = $post_manager->get($id_director);
-	$post_manager->delete($post);
-
-	header('Location: index.php');
-}

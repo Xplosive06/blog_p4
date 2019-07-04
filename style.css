@@ -116,3 +116,13 @@ input[type=submit] {
   margin-left: 20px;
   width: 80%;
 }
+
+.bordering {
+  border: solid black 2px;
+  padding: 5px;
+}
+
+.user_bar {
+  display: flex;
+  justify-content: space-between;
+}
