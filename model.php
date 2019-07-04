@@ -1,6 +1,8 @@
 <?php
 require('post_manager.php');
-require('post.php');
+require('post_model.php');
+require('comment_model.php');
+require('comment_manager.php');
 
 function getPosts(){
 	$post_manager = new PostManager(dbConnect());
@@ -14,14 +16,16 @@ function getPost($postId)
 	$post_manager = new PostManager(dbConnect());
 	$post = $post_manager->get($postId);
 
+	echo "getPost appelé";
+
 	return $post;
 }
 
 function getComments($postId)
-{
-	$db = dbConnect();
-	$comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
-	$comments->execute(array($postId));
+{	
+	$comments = [];
+	$comment_manager = new CommentManager(dbConnect());
+	$comments = $comment_manager->getList($postId);
 
 	return $comments;
 }

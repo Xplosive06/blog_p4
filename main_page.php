@@ -28,26 +28,26 @@ $user = $_SESSION['nickname'];
         <h1>Derniers billets du blog :</h1>
 
         <?php 
-        foreach ($posts as $key => $value) {
+        foreach ($posts as $key => $post) {
 
             ?>
             <div class="news">
                 <h3>
-                    <?= htmlspecialchars($value->title()); ?>
-                    <em>le <?= $value->creation_date()?></em>
+                    <?= htmlspecialchars($post->title()); ?>
+                    <em>le <?= $post->creation_date()?></em>
                 </h3>
                 <div class="content-area">
                     <p>
                         <?=
-                        nl2br(htmlspecialchars($value->content()));
+                        nl2br(htmlspecialchars($post->content()));
                         ?>
                         <br />
                     </p>
                     <div class="flex-space">
-                        <em><a href="commentaires.php?billet=<?= $value->id() ?>">Commentaires</a></em>
+                        <em><a href="post_controller.php?id=<?= $post->id() ?>">Commentaires</a></em>
                         <form method="POST" action="main.php">
 
-                            <button type="submit" class="btn-danger" name="id_director" value="<?= $value->id()?>">Supprimer</button>
+                            <button type="submit" class="btn-danger" name="id_director" value="<?= $post->id()?>">Supprimer</button>
                         </form>
                     </div>
 

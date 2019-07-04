@@ -113,5 +113,6 @@ input[type=submit] {
 }
 
 .admin-main-part {
+  margin-left: 20px;
   width: 80%;
 }

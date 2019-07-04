@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-require 'post.php';
+require 'post_model.php';
 require 'post_manager.php';
 require 'user.php';
 require 'user_manager.php';
@@ -40,11 +40,3 @@ else if (isset($_POST['id_director'])){
 
 	header('Location: index.php');
 }
-
-
-/*
-$postsArray = $post_manager->getList();
-
-foreach ($postsArray as $key => $value) {
-	echo '[' . $key . '] vaut ' . $value->creation_date() . '<br />';
-}*/
