@@ -137,16 +137,14 @@ public function deleteComment(){
 public function reportComment(){
 	$db = $this->getDb();
 
-	echo "reportComment() appelée";
-
 	$comment_manager = new CommentManager($db);
 	$comment = $comment_manager->get($_POST['comment_id']);
 
 	$comment->reported();
 
-	$comment_manager->update($comment);
+	$comment_manager->updateReports($comment);
 
-	echo $comment->reports();
+	header('Location: '.HOST.'comments.html?get_post_id='.$comment->post_id());
 
 }
 
@@ -250,38 +248,3 @@ public function newConnection(){
 	}
 }
 }
-/*if (isset($_POST['title']) && isset($_POST['content']))
-{
-	if(empty($_SESSION)){
-		header("Location: ".VIEW."/connection.php");
-	}
-	else if (strlen($_POST['title'])>0 && strlen($_POST['content'])>0)
-	{
-		$post_manager = new PostManager($db);
-		$post = new Post();
-		$post->setTitle($_POST['title']);
-		$post->setContent($_POST['content']);
-		$post_manager->add($post);
-
-	}
-	else {
-		echo "Title ou content incorrects";
-	}
-
-	header('Location: ../index.php');
-
-}*/
-
-/*if (strlen($_POST['comment'])){
-
-	$comment_manager = new CommentManager($db);
-	$new_comment = new Comment();
-
-	$new_comment->setComment($_POST['comment']);
-	$new_comment->setAuthor($_SESSION['nickname']);
-	$new_comment->setPost_id($_SESSION['post_id']);
-
-	$comment_manager->add($new_comment);
-
-	header('Location: post_controller.php?id='.$_SESSION['post_id']);
-}*/

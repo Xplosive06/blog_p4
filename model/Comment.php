@@ -109,7 +109,11 @@ class Comment
 	public function setComment_date($comment_date)
 	{
 		$this->_comment_date = $comment_date;
+	}
 
+	public function setReports($reports)
+	{
+		$this->_reports = $reports;
 	}
 
 	public function reported()

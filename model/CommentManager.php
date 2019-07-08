@@ -51,15 +51,29 @@
     return $comments;
   }
 
-  public function getNumberOfComments($post_id){
+  public function getNumberOfComments($post_id)
+  {
     $list_of_comments = $this->getList($post_id);
     $number_of_comments = count($list_of_comments);
 
     return $number_of_comments;
   }
 
+  public function updateReports(Comment $comment)
+  {
+
+    $q = $this->_db->prepare('UPDATE comments SET reports = :reports WHERE id = :id');
+
+    $q->bindValue(':id', $comment->id());
+    $q->bindValue(':reports', $comment->reports(), PDO::PARAM_INT);
+
+    $q->execute();
+
+  }
+
   public function update(Comment $comment)
   {
+
     $q = $this->_db->prepare('UPDATE comments SET id = :id, post_id = :post_id, author = :author, comment = :comment, reports = :reports, comment_date = now() WHERE id = :id');
 
     $q->bindValue(':id', $comment->id());
@@ -69,6 +83,7 @@
     $q->bindValue(':reports', $comment->reports(), PDO::PARAM_INT);
 
     $q->execute();
+
   }
 
   public function setDb(PDO $db)

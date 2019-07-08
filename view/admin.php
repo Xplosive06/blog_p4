@@ -1,3 +1,9 @@
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+	tinymce.init({selector: '#content'});
+</script>
+
 
 <h1>Administration</h1>
 
@@ -24,10 +30,11 @@
 				<div class="panel-heading">Nouvelle publication</div>
 				<div class="input-group">
 
-					<label for="title">Titre: </label><input class="input-sm" id="title" type="text" name="title" required><br></div>
-					<div class="input-group">
+					<label for="title">Titre: </label><input class="input-sm flex-column" id="title" type="text" name="title" required><br></div>
+					<div class="input-group flex-column">
 
-						<label for="content">Message: </label><textarea class="input-lg" id="content" type="text" name="content" required></textarea><br>
+						<label for="content">Message: </label>
+						<textarea class="input-lg" id="content" type="text" name="content" required></textarea>
 
 						<button type="submit" class="btn-success">Envoyer</button>
 
@@ -35,7 +42,7 @@
 				</form>
 			</div>
 
-			<div id="posts" class="tab-pane fade">
+			<div id="posts" class="tab-pane panel-primary admin-main-part fade">
 				<h3>Tous les articles</h3>
 				<?php 
 
@@ -65,58 +72,58 @@
 
 			</div>
 
-			<div id="comments" class="tab-pane fade">
-				<h3>Tous les commentaires</h3>
+			<div id="comments" class="tab-pane panel-primary admin-main-part fade">
+				<h3>Les commentaires signalés</h3>
 				<?php 
 				foreach ($posts as $key => $post) {
 
 					$comments = $comment_manager->getList($post->id());
 					foreach ($comments as $key => $comment) {
-						# code...
-					
+						if($comment->reports() > 0){
+
+							?>
+							<div class="bordering">
+
+								<div class="user_bar">
+									<strong><?= $post->creation_date()?></strong> 
+
+									<strong>Titre de la publication : <?= $post->title()?></strong> 
+								</div>
+								<h3>Contenu du commentaire</h3>
+								<strong><?= $comment->comment()?></strong>
+
+								<form method="POST" action="<?php echo HOST.'delete_comment.html'?>">
+
+									<button type="submit" class="btn-danger" name="comment_id" value="<?= $comment->id()?>">Supprimer</button>
+								</form>
+							</div>
+						<?php }?>
+					<?php }?>
+				<?php } ?>
+			</div>
+
+			<div id="users" class="tab-pane panel-primary admin-main-part fade">
+				<h3>Tous les utilisateurs</h3>
+				<?php 
+				foreach ($users as $key => $ad_user) {
 
 					?>
 					<div class="bordering">
 
-						<div class="user_bar">
-						<strong><?= $post->creation_date()?></strong> 
-						
-						<strong>Titre de la publication : <?= $post->title()?></strong> 
+						<div class="user_bar"><div><strong>Id : </strong><?= htmlspecialchars($ad_user->id()); ?></div>
+						<strong><?= $ad_user->nickname()?></strong> 
 					</div>
-					<h3>Contenu du commentaire</h3>
-					<strong><?= $comment->comment()?></strong>
 
-					<form method="POST" action="<?php echo HOST.'delete_comment.html'?>">
+					<form method="POST" action="<?php echo HOST.'delete_user.html'?>">
 
-						<button type="submit" class="btn-danger" name="comment_id" value="<?= $comment->id()?>">Supprimer</button>
+						<button type="submit" class="btn-danger" name="user_nickname" value="<?= $ad_user->nickname()?>">Supprimer</button>
 					</form>
 				</div>
-				<?php }?>
+
 			<?php } ?>
 		</div>
 
-		<div id="users" class="tab-pane fade">
-			<h3>Tous les utilisateurs</h3>
-			<?php 
-			foreach ($users as $key => $ad_user) {
-
-				?>
-				<div class="bordering">
-
-					<div class="user_bar"><div><strong>Id : </strong><?= htmlspecialchars($ad_user->id()); ?></div>
-					<strong><?= $ad_user->nickname()?></strong> 
-				</div>
-
-				<form method="POST" action="<?php echo HOST.'delete_user.html'?>">
-
-					<button type="submit" class="btn-danger" name="user_nickname" value="<?= $ad_user->nickname()?>">Supprimer</button>
-				</form>
-			</div>
-
-		<?php } ?>
 	</div>
-
-</div>
 
 </div>
 </div>

@@ -1,4 +1,4 @@
-h1, h3
+h1, h2, h3
 {
   text-align:center;
 }
@@ -18,13 +18,20 @@ body {
   padding: 2%;
 }
 
-.my-header {
+.my-header, .user_bar {
   display: flex;
   justify-content: space-between;
 }
 
 .input-group{
+  display: flex;
+  flex-direction: column;
   padding: 2%;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .content-area
@@ -120,9 +127,4 @@ input[type=submit] {
 .bordering {
   border: solid black 2px;
   padding: 5px;
-}
-
-.user_bar {
-  display: flex;
-  justify-content: space-between;
 }
