@@ -4,7 +4,7 @@
 
 		<h1>Créer un nouveau compte</h1>
 
-		<form class="panel-primary" method="post" action="<?php echo HOST.'connection_new.html'?>">
+		<form class="panel-primary" method="post" action="<?php echo HOST.'add_user.html'?>">
 			<div class="panel-heading">Nouveau compte</div>
 			<div class="form-bloc">
 				<div class="left-side-form">

@@ -21,16 +21,16 @@
     $q->execute();
   }
 
-  public function delete(Comment $comment)
+  public function delete($id)
   {
-    $this->_db->exec('DELETE FROM comments WHERE id = '.$comment->id());
+    $this->_db->exec('DELETE FROM comments WHERE id = '.$id);
   }
 
   public function get($id)
   {
     $id = (int) $id;
 
-    $q = $this->_db->query('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date FROM comments WHERE id = '.$id);
+    $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date FROM comments WHERE id = '.$id);
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
     return new Comment($donnees);
@@ -41,7 +41,7 @@
   {
     $comments = [];
 
-    $q = $this->_db->query('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date FROM comments WHERE post_id = '.$post_id.' ORDER BY comment_date DESC');
+    $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date FROM comments WHERE post_id = '.$post_id.' ORDER BY comment_date DESC');
 
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
     {
@@ -60,12 +60,13 @@
 
   public function update(Comment $comment)
   {
-    $q = $this->_db->prepare('UPDATE comments SET id = :id, post_id = :post_id, author = :author, comment = :comment, comment_date = now() WHERE id = :id');
+    $q = $this->_db->prepare('UPDATE comments SET id = :id, post_id = :post_id, author = :author, comment = :comment, reports = :reports, comment_date = now() WHERE id = :id');
 
     $q->bindValue(':id', $comment->id());
     $q->bindValue(':post_id', $comment->post_id(), PDO::PARAM_INT);
     $q->bindValue(':author', $comment->author());
     $q->bindValue(':comment', $comment->comment());
+    $q->bindValue(':reports', $comment->reports(), PDO::PARAM_INT);
 
     $q->execute();
   }

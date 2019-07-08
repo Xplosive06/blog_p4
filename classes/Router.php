@@ -1,5 +1,6 @@
 <?php
 include CONTROLLER.'Home.php';
+
 /**
  * Class Routeur
  *
@@ -10,13 +11,19 @@ class Router
     private $request;
 
     private $routes = [
-                            "home.html"                 => ["controller" => 'Home', "method" => 'showHome'],
-                            "connection.html"           => ["controller" => 'Home', "method" => 'showConnectionCheck'],
-                            "check_connection.html"     => ["controller" => 'Home', "method" => 'checkConnection'],
-                            "new_connection.html"       => ["controller" => 'Home', "method" => 'showConnectionNew'],
-                            "connection_new.html"       => ["controller" => 'Home', "method" => 'newConnection'],
-                            "admin.html"                => ["controller" => 'Home', "method" => 'showAdmin'],
-                            "comments.html"             => ["controller" => 'Home', "method" => 'showComments'],
+        "home.html"                 => ["controller" => 'Home', "method" => 'showHome'],
+        "connection.html"           => ["controller" => 'Home', "method" => 'showConnectionCheck'],
+        "check_connection.html"     => ["controller" => 'Home', "method" => 'checkConnection'],
+        "new_connection.html"       => ["controller" => 'Home', "method" => 'showConnectionNew'],
+        "add_user.html"             => ["controller" => 'Home', "method" => 'addUser'],
+        "admin.html"                => ["controller" => 'Home', "method" => 'showAdmin'],
+        "comments.html"             => ["controller" => 'Home', "method" => 'showComments'],
+        "add_comment.html"          => ["controller" => 'Home', "method" => 'addComment'],
+        "add_post.html"             => ["controller" => 'Home', "method" => 'addPost'],
+        "delete_post.html"          => ["controller" => 'Home', "method" => 'deletePost'],
+        "delete_user.html"          => ["controller" => 'Home', "method" => 'deleteUser'],
+        "delete_comment.html"       => ["controller" => 'Home', "method" => 'deleteComment'],
+        "report_comment.html"       => ["controller" => 'Home', "method" => 'reportComment'],
 
     ];
 

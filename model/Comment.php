@@ -6,6 +6,7 @@ class Comment
 	private $_author;
 	private $_comment;
 	private $_comment_date;
+	private $_reports;
 
 	public function __construct($value = array())
 	{
@@ -57,6 +58,11 @@ class Comment
 	{
 		return $this->_comment_date;
 	}
+
+	public function reports()
+	{
+		return $this->_reports;
+	}
 	
   // Liste des setters
 	
@@ -104,6 +110,11 @@ class Comment
 	{
 		$this->_comment_date = $comment_date;
 
+	}
+
+	public function reported()
+	{
+		$this->_reports++;
 	}
 	
 }

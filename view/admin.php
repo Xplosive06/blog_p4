@@ -1,68 +1,98 @@
 
-		<h1>Administration</h1>
+<h1>Administration</h1>
 
-		<div class="admin-block">
+<div class="admin-block">
 
-			<ul class="nav nav-pills admin-navbar">
-				<li class="nav-item">
-					<a class="nav-link active" data-toggle="pill" href="#new_post">Nouvelle publication</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-toggle="pill" href="#posts">Vos publications</a>
-				</li >
-<!-- 				<li class="nav-item">
-	<a class="nav-link" data-toggle="pill" href="#comments">Les commentaires</a>
-</li> -->
-<li class="nav-item">
-	<a class="nav-link" data-toggle="pill" href="#users">Gestion utilisateurs</a>
-</li>
-</ul>
-<div class="tab-content admin-main-part">
-	<div id="new_post" class="tab-pane active fade show">
-		<form class="panel-primary admin-main-part" method="post" action="../controller/main.php" onsubmit="return validateForm()">
+	<ul class="nav nav-pills admin-navbar">
+		<li class="nav-item">
+			<a class="nav-link active" data-toggle="pill" href="#new_post">Nouvelle publication</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="pill" href="#posts">Vos publications</a>
+		</li >
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="pill" href="#comments">Les commentaires</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="pill" href="#users">Gestion utilisateurs</a>
+		</li>
+	</ul>
+	<div class="tab-content admin-main-part">
+		<div id="new_post" class="tab-pane active fade show">
+			<form class="panel-primary admin-main-part" method="post" action="<?php echo HOST.'add_post.html'?>" onsubmit="return validateForm()">
 
-			<div class="panel-heading">Nouvel publication</div>
-			<div class="input-group">
-
-				<label for="title">Titre: </label><input class="input-sm" id="title" type="text" name="title" required><br></div>
+				<div class="panel-heading">Nouvelle publication</div>
 				<div class="input-group">
 
-					<label for="content">Message: </label><textarea class="input-lg" id="content" type="text" name="content" required></textarea><br>
+					<label for="title">Titre: </label><input class="input-sm" id="title" type="text" name="title" required><br></div>
+					<div class="input-group">
 
-					<button type="submit" class="btn-success">Envoyer</button>
+						<label for="content">Message: </label><textarea class="input-lg" id="content" type="text" name="content" required></textarea><br>
 
-				</div>
-			</form>
-		</div>
+						<button type="submit" class="btn-success">Envoyer</button>
 
-		<div id="posts" class="tab-pane fade">
-			<h3>Tous les articles</h3>
-			<?php 
+					</div>
+				</form>
+			</div>
 
-			foreach ($posts as $key => $post) {
+			<div id="posts" class="tab-pane fade">
+				<h3>Tous les articles</h3>
+				<?php 
 
-				?>
-				<div class="bordering">
+				foreach ($posts as $key => $post) {
 
-					<p>
-						<p><strong>Titre : </strong><?= htmlspecialchars($post->title()); ?></p>
-						<em><strong>le</strong> <?= $post->creation_date()?></em>
-					</p>
+					?>
+					<div class="bordering">
 
-					<p><strong>Contenu :</strong>
-						<?=
-						nl2br(htmlspecialchars($post->content()));
-						?>
-					</p>
-					<em><a href="../controller/post_controller.php?id=<?= $post->id() ?>"><?=$comment_manager->getNumberOfComments($post->id())?> Commentaires</a></em>
-					<form method="POST" action="../model/model.php">
+						<p>
+							<p><strong>Titre : </strong><?= htmlspecialchars($post->title()); ?></p>
+							<em><strong>le</strong> <?= $post->creation_date()?></em>
+						</p>
 
-						<button type="submit" class="btn-danger" name="post_id" value="<?= $post->id()?>">Supprimer</button>
+						<p><strong>Contenu :</strong>
+							<?=
+							nl2br(htmlspecialchars($post->content()));
+							?>
+						</p>
+						<em><a href="<?php echo HOST.'comments.html?get_post_id='?><?= $post->id() ?>"><?=$comment_manager->getNumberOfComments($post->id())?> Commentaires</a></em>
+						<form method="POST" action="<?php echo HOST.'delete_post.html'?>">
+
+							<button type="submit" class="btn-danger" name="post_id" value="<?= $post->id()?>">Supprimer</button>
+						</form>
+					</div>
+
+				<?php } ?>
+
+			</div>
+
+			<div id="comments" class="tab-pane fade">
+				<h3>Tous les commentaires</h3>
+				<?php 
+				foreach ($posts as $key => $post) {
+
+					$comments = $comment_manager->getList($post->id());
+					foreach ($comments as $key => $comment) {
+						# code...
+					
+
+					?>
+					<div class="bordering">
+
+						<div class="user_bar">
+						<strong><?= $post->creation_date()?></strong> 
+						
+						<strong>Titre de la publication : <?= $post->title()?></strong> 
+					</div>
+					<h3>Contenu du commentaire</h3>
+					<strong><?= $comment->comment()?></strong>
+
+					<form method="POST" action="<?php echo HOST.'delete_comment.html'?>">
+
+						<button type="submit" class="btn-danger" name="comment_id" value="<?= $comment->id()?>">Supprimer</button>
 					</form>
 				</div>
-
+				<?php }?>
 			<?php } ?>
-
 		</div>
 
 		<div id="users" class="tab-pane fade">
@@ -77,7 +107,7 @@
 					<strong><?= $ad_user->nickname()?></strong> 
 				</div>
 
-				<form method="POST" action="../model/model.php">
+				<form method="POST" action="<?php echo HOST.'delete_user.html'?>">
 
 					<button type="submit" class="btn-danger" name="user_nickname" value="<?= $ad_user->nickname()?>">Supprimer</button>
 				</form>
@@ -85,6 +115,7 @@
 
 		<?php } ?>
 	</div>
+
 </div>
 
 </div>
