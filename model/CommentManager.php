@@ -16,6 +16,8 @@
     $q->bindValue(':author', $comment->author());
     $q->bindValue(':comment', $comment->comment());
 
+    echo "fonction add() appellée";
+
     $q->execute();
   }
 
@@ -28,7 +30,7 @@
   {
     $id = (int) $id;
 
-    $q = $this->_db->query('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE id = '.$id);
+    $q = $this->_db->query('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date FROM comments WHERE id = '.$id);
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
     return new Comment($donnees);
@@ -39,7 +41,7 @@
   {
     $comments = [];
 
-    $q = $this->_db->query('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date_fr FROM comments WHERE post_id = '.$post_id.' ORDER BY comment_date DESC');
+    $q = $this->_db->query('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date FROM comments WHERE post_id = '.$post_id.' ORDER BY comment_date DESC');
 
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
     {
@@ -47,6 +49,13 @@
     }
 
     return $comments;
+  }
+
+  public function getNumberOfComments($post_id){
+    $list_of_comments = $this->getList($post_id);
+    $number_of_comments = count($list_of_comments);
+
+    return $number_of_comments;
   }
 
   public function update(Comment $comment)

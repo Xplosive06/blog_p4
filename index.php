@@ -1,6 +1,9 @@
-<?php
-require('model.php');
+<?php 
+include_once('_config.php');
 
-$posts = getPosts();
+MyAutoload::start();
 
-require ('main_page.php');
+$request = $_GET['r'];
+
+$router = new Router($request);
+$router->renderController();

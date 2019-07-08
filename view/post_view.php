@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Mon blog</title>
-        <link href="style.css" rel="stylesheet" /> 
-    </head>
+
         
     <body>
         <h1>Mon super blog !</h1>
-        <p><a href="index.php">Retour à la liste des billets</a></p>
 
         <div class="news">
             <h3>
@@ -32,5 +25,16 @@
         <?php
         }
         ?>
-    </body>
-</html>
+
+        <form class="panel-primary" method="post" action="main.php">
+
+            <div class="panel-heading">Mon commentaire</div>
+    
+                <div class="input-group">
+
+                    <label for="comment">Message: </label><textarea class="input-lg" id="comment" type="text" name="comment" required></textarea><br>
+
+                    <button type="submit" class="btn-success">Envoyer</button>
+
+                </div>
+            </form>

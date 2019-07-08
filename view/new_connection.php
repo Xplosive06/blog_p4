@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	
-	<meta charset="utf-8" />
 
-	<link href="style.css" rel="stylesheet" />
-
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
-
-	<title>Nouveau compte</title>
-</head>
 <body>
 	<div class="bloc-page">
 
-		<header><a href="index.php">accueil</a></header>
-
 		<h1>Créer un nouveau compte</h1>
 
-		<form class="panel-primary" method="post" action="connection_new.php">
+		<form class="panel-primary" method="post" action="<?php echo HOST.'connection_new.html'?>">
 			<div class="panel-heading">Nouveau compte</div>
 			<div class="form-bloc">
 				<div class="left-side-form">
@@ -48,6 +35,4 @@
 				</div>
 
 				
-				<script src="form_check.js"></script>
-			</body>
-			</html>
+				<script src="<?php echo JS.'form_check.js'?>"></script>

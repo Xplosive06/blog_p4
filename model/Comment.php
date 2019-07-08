@@ -1,11 +1,11 @@
 <?php
-
-class User
+class Comment
 {
 	private $_id;
-	private $_nickname;
-	private $_password;
-	private $_creation_date;
+	private $_post_id;
+	private $_author;
+	private $_comment;
+	private $_comment_date;
 
 	public function __construct($value = array())
 	{
@@ -36,21 +36,26 @@ class User
 	public function id()
 	{
 		return $this->_id;
-	}
-	
-	public function nickname()
-	{
-		return $this->_nickname;
-	}
-	
-	public function password()
-	{
-		return $this->_password;
-	}
+	}	
 
-	public function creation_date()
+	public function post_id()
 	{
-		return $this->_creation_date;
+		return $this->_post_id;
+	}
+	
+	public function author()
+	{
+		return $this->_author;
+	}
+	
+	public function comment()
+	{
+		return $this->_comment;
+	}
+	
+	public function comment_date()
+	{
+		return $this->_comment_date;
 	}
 	
   // Liste des setters
@@ -65,30 +70,39 @@ class User
 			$this->_id = $id;
 		}
 	}
-	
-	public function setNickname($nickname)
+
+	public function setPost_id($post_id)
 	{
 
-		if (is_string($nickname))
+		$post_id = (int) $post_id;
+		
+		if ($post_id > 0)
 		{
-			$this->_nickname = $nickname;
-			$_SESSION['nickname'] = $nickname;
+			$this->_post_id = $post_id;
 		}
 	}
 	
-	public function setPassword($password)
+	public function setAuthor($author)
+	{
+
+		if (is_string($author))
+		{
+			$this->_author = $author;
+		}
+	}
+	
+	public function setComment($comment)
 	{
 		
-		if (is_string($password))
+		if (is_string($comment))
 		{
-			password_hash($password, PASSWORD_DEFAULT);
-			$this->_password = $password;
+			$this->_comment = $comment;
 		}
 	}
 
-	public function setCreation_date($creation_date)
+	public function setComment_date($comment_date)
 	{
-		$this->_creation_date = $creation_date;
+		$this->_comment_date = $comment_date;
 
 	}
 	
