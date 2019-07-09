@@ -13,26 +13,20 @@ class User
 			$this->hydrate($value);
 	}
 
-	// Un tableau de données doit être passé à la fonction (d'où le préfixe « array »).
 	public function hydrate(array $donnees)
 	{
 
 		foreach ($donnees as $key => $value)
 		{
-    // On récupère le nom du setter correspondant à l'attribut.
 			$method = 'set'.ucfirst($key);
 			
-    // Si le setter correspondant existe.
 			if (method_exists($this, $method))
 			{
-      // On appelle le setter.
 				$this->$method($value);
 			}
 		}
 	}
 
-  // Liste des getters
-	
 	public function id()
 	{
 		return $this->_id;
@@ -52,9 +46,7 @@ class User
 	{
 		return $this->_creation_date;
 	}
-	
-  // Liste des setters
-	
+		
 	public function setId($id)
 	{
 

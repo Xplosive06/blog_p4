@@ -30,6 +30,6 @@
 
             </div>
             <?php
-} // Fin de la boucle des billets
+} 
 ?>
 </div>

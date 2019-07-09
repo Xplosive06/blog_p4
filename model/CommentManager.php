@@ -1,7 +1,7 @@
   <?php
   class CommentManager
   {
-  private $_db; // Instance de PDO
+  private $_db;
 
   public function __construct($db)
   {

@@ -12,18 +12,18 @@ class Router
 
     private $routes = [
         "home.html"                 => ["controller" => 'Home', "method" => 'showHome'],
-        "connection.html"           => ["controller" => 'Home', "method" => 'showConnectionCheck'],
-        "check_connection.html"     => ["controller" => 'Home', "method" => 'checkConnection'],
-        "new_connection.html"       => ["controller" => 'Home', "method" => 'showConnectionNew'],
-        "add_user.html"             => ["controller" => 'Home', "method" => 'addUser'],
         "admin.html"                => ["controller" => 'Home', "method" => 'showAdmin'],
-        "comments.html"             => ["controller" => 'Home', "method" => 'showComments'],
-        "add_comment.html"          => ["controller" => 'Home', "method" => 'addComment'],
-        "add_post.html"             => ["controller" => 'Home', "method" => 'addPost'],
-        "delete_post.html"          => ["controller" => 'Home', "method" => 'deletePost'],
-        "delete_user.html"          => ["controller" => 'Home', "method" => 'deleteUser'],
-        "delete_comment.html"       => ["controller" => 'Home', "method" => 'deleteComment'],
-        "report_comment.html"       => ["controller" => 'Home', "method" => 'reportComment'],
+        "connection.html"           => ["controller" => 'ConnectionController', "method" => 'showConnectionCheck'],
+        "check_connection.html"     => ["controller" => 'ConnectionController', "method" => 'checkConnection'],
+        "new_connection.html"       => ["controller" => 'ConnectionController', "method" => 'showConnectionNew'],
+        "add_user.html"             => ["controller" => 'UserController', "method" => 'addUser'],
+        "delete_user.html"          => ["controller" => 'UserController', "method" => 'deleteUser'],
+        "add_post.html"             => ["controller" => 'PostController', "method" => 'addPost'],
+        "delete_post.html"          => ["controller" => 'PostController', "method" => 'deletePost'],
+        "comments.html"             => ["controller" => 'CommentController', "method" => 'showComments'],
+        "add_comment.html"          => ["controller" => 'CommentController', "method" => 'addComment'],
+        "delete_comment.html"       => ["controller" => 'CommentController', "method" => 'deleteComment'],
+        "report_comment.html"       => ["controller" => 'CommentController', "method" => 'reportComment'],
 
     ];
 
