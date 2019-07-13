@@ -82,6 +82,9 @@ a:focus, a:hover {
   background-repeat: no-repeat;
   background-position: 50% 50%;
   margin-bottom: 50px;
+  box-shadow:inset 0 0 0 2000px rgba(33, 37, 41,0.3);
+  background-size: cover;
+  margin-top: 57px;
 }
 
 .overlay {
@@ -96,8 +99,12 @@ a:focus, a:hover {
 
 .page-heading {
   padding: 200px 0 150px;
-  color: white;
   text-align: center;
+  color: white;
+}
+
+.page-heading-contact {
+  mix-blend-mode: difference;
 }
 
 .page-heading h1 {
@@ -148,6 +155,7 @@ a:focus, a:hover {
 }
 
 .flex-space {
+  margin-top: 40px;
   display: flex;
   justify-content: space-between;
 }
@@ -165,4 +173,93 @@ footer {
   font-size: 14px;
   margin-bottom: 0;
   text-align: center;
+}
+
+/* ******************* ADMIN ******************* */
+
+.admin-container {
+  margin-top: 100px;
+}
+
+.admin-block {
+  display: flex;
+}
+
+.admin-navbar {
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+}
+
+.admin-main-part {
+  margin-left: 20px;
+  width: 80%;
+}
+
+@media all and (max-width: 1024px){
+  .container {
+    max-width: none;
+  }
+
+  .tab-pane {
+    padding-top: 20px;
+    padding-left: 10px;
+  }
+
+}
+
+/* ******************* CONNECTION ******************* */
+
+.connection-container {
+  margin-top: 100px;
+}
+
+.floating-label-form-group {
+    font-size: 14px;
+    position: relative;
+    padding-bottom: .5em;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.floating-label-form-group label {
+    font-size: .85em;
+    line-height: 1.764705882em;
+    position: relative;
+    z-index: 0;
+    top: 2em;
+    display: block;
+    margin: 0;
+    -webkit-transition: top .3s ease,opacity .3s ease;
+    transition: top .3s ease,opacity .3s ease;
+    vertical-align: middle;
+    vertical-align: baseline;
+    opacity: 0;
+}
+
+.floating-label-form-group input, .floating-label-form-group textarea {
+    font-size: 1.5em;
+    position: relative;
+    z-index: 1;
+    padding: 0;
+    resize: none;
+    border: none;
+    border-radius: 0;
+    background: 0 0;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    font-family: Lora,'Times New Roman',serif;
+}
+
+.btn-primary {
+    background-color: #0085a1;
+    border-color: #0085a1;
+}
+.btn {
+    font-size: 14px;
+    font-weight: 800;
+    padding: 15px 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 0;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 }

@@ -41,15 +41,24 @@ class ConnectionController extends Database
 	}
 
 
-	public function showConnectionCheck() {
-
+	public function showConnectionCheck() 
+	{
 		$myView = new View('connection');
 		$myView->render();
 	}
 
 
-	public function showConnectionNew() {
+	public function showConnectionNew() 
+	{
 		$myView = new View('new_connection');
 		$myView->render();
+	}
+
+	public function disconnection() {
+		session_start();
+		if(isset($_SESSION['nickname'])){
+			unset($_SESSION['nickname']);
+		}
+		header('Location: '.HOST.'home.html');
 	}
 }

@@ -43,4 +43,10 @@ class Home  extends Database
 			'comments'			=> $comments,
 		));
 	}
+
+	public function showContact() {
+
+		$myView = new View('contact');
+		$myView->render();
+	}
 }

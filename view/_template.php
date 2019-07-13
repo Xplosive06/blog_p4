@@ -22,7 +22,7 @@
 </head>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 	<div class="container">
-		<a class="navbar-brand" href="index.html">Jean On The Road</a>
+		<a class="navbar-brand" href='<?php echo HOST."home.html"?>'>Jean On The Road</a>
 		<button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 			Menu
 			<i class="fas fa-bars"></i>
@@ -32,11 +32,14 @@
 				<li class="nav-item">
 					<a class="nav-link" href="<?php echo HOST.$link_1?>"><?php echo $link_name_1?></a>
 				</li>
-				<li class="nav-item">
-					<a id="link_admin" class="nav-link" href="<?php echo HOST.$link_2?>"><?php echo $link_name_2?></a>
+				<li <?php echo $display?> class="nav-item">
+					<a class="nav-link" href="<?php echo HOST.$link_2?>"><?php echo $link_name_2?></a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="<?php echo HOST.$link_3?>"><?php echo $link_name_3?></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="<?php echo HOST.'contact.html'?>">Contact</a>
 				</li>
 			</ul>
 		</div>
@@ -44,6 +47,8 @@
 </nav>
 
 <?php echo $contentPage ;?>
+
+<hr>
 
 <footer>
 	<div class="connected-user">

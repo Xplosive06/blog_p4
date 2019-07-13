@@ -52,33 +52,34 @@ class View
         $link_3 = ''; 
         $link_name_3 = '';
 
+        $display = 'style = display:none';
+
         if(isset($_SESSION['nickname'])){ 
             $user_manager = new UserManager();
             $user = $user_manager->get($_SESSION['nickname']);
 
             $link_1 = 'home.html';
             $link_name_1 = 'accueil';
-            echo '<style type="text/css">
-        #link-admin {
-            display: block;
-        }
-        </style>';
             $link_3 = 'disconnection.html';
             $link_name_3 = 'Déconnexion';
 
         if($user->role() == 'admin')
         {
+            $display = 'style = display:block';
             $user_link = '<a href="admin.html">'.$_SESSION['nickname'].'</a>';
             $link_2 = 'admin.html';
             $link_name_2 = 'Administration';
         }
         else
         {
+            $display = 'style = display:none';
             $user_link = '<a href="home.html">'.$_SESSION['nickname'].'</a>';
         }
     }
     else
     {
+            $link_3 = 'new_connection.html';
+            $link_name_3 = 'Inscription';
         if ($request == 'home.html') 
         {
             $link_1 = 'connection.html';
@@ -88,23 +89,21 @@ class View
         {
             $link_1 = 'home.html';
             $link_name_1 = 'accueil';
-            $link_3 = 'new_connection.html';
-            $link_name_3 = 'Inscription';
         }
         $user_link = 'non connecté';
     }
 
 
     $session_array = array(
-
-        'user_link'    => $user_link, 
-        'request'      => $request, 
+        'user_link'      => $user_link, 
+        'request'        => $request, 
         'link_1'         => $link_1,
         'link_name_1'    => $link_name_1,
         'link_2'         => $link_2,
         'link_name_2'    => $link_name_2,
         'link_3'         => $link_3,
         'link_name_3'    => $link_name_3,
+        'display'        => $display,
     );
 
     return $session_array;

@@ -19,6 +19,8 @@
 
 </header>
 
+<hr>
+
 <div class="container">
     <div class="row">
 
@@ -50,8 +52,6 @@
                             <em>le <?= $post->creation_date()?></em>
 
                         </div>
-
-                        <hr>
 
                     </div>
 

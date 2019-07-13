@@ -1,38 +1,37 @@
 
 <body>
-	<div class="bloc-page">
+	<div class="container connection-container">
 
-		<h1>Créer un nouveau compte</h1>
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
 
-		<form class="panel-primary" method="post" action="<?php echo HOST.'add_user.html'?>">
-			<div class="panel-heading">Nouveau compte</div>
-			<div class="new-connection-block">
-				<div class="new-connection-inputs">
-					<div class="input-group">
-						<label for="nickname">Pseudo: </label><input class="input-sm" id="nickname" type="text" name="nickname" autocomplete="username" required><br></div>
-						<div class="input-group">
-							<label for="password">Mot de passe: </label><input class="input-sm" id="password" type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="new-password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" autocomplete="new-password" required></input><br></div>
-							<div class="input-group">
-								<label for="password-confirmation">Confirmation: </label><input class="input-sm" id="password-confirmation" type="password" name="password-confirmation" autocomplete="new-password" required></input><br></div>
-								<div class="flex-space">
-									<button type="submit" class="btn-success" onclick="return validate()">Envoyer</button>
-								</div>
-							</div>
-							<div class="verification-block">
-								<div id="message">
-									<h3>Votre mot de passe doît contenir :</h3>
-									<p id="letter" class="invalid">Une lettre en <b>minuscule</b></p>
-									<p id="capital" class="invalid">Une lettre en <b>capitale</b></p>
-									<p id="number" class="invalid">Un <b>chiffre</b></p>
-									<p id="length" class="invalid">Au minimum <b>8 caractères</b></p>
-								</div>
-							</div>
+				<h1>Créer un nouveau compte</h1>
 
+				<form class="panel-primary" method="post" action="<?php echo HOST.'add_user.html'?>">
+
+					<div class="control-group">
+						<div class="form-group floating-label-form-group controls">
+							<label for="nickname">Pseudo: </label><input class="form-control" id="nickname" type="text" placeholder="Pseudo" name="nickname" autocomplete="username" required></div>
 						</div>
-
+						<div class="control-group">
+							<div class="form-group floating-label-form-group controls">
+								<label for="password">Mot de passe: </label><input class="form-control" id="password" type="password" name="password"
+								placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="new-password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></input>
+							</div>
+						</div>
+						<div class="control-group">
+							<div class="form-group floating-label-form-group controls">
+								<label for="password-confirmation">Confirmation: </label><input class="input-sm" placeholder="Confirmation" id="password-confirmation" type="password" name="password-confirmation" autocomplete="new-password" required></input>
+							</div>
+						</div>
+						<div class="flex-space">
+							<button type="submit" class="btn btn-primary" onclick="return validate()">Envoyer</button>
+						</div>
 					</form>
 
 				</div>
+			</div>
+		</div>
 
-				
-				<script src="<?php echo JS.'form_check.js'?>"></script>
+
+		<script src="<?php echo JS.'form_check.js'?>"></script>
