@@ -2,14 +2,8 @@
 /**
  * 
  */
-class ConnectionController
+class ConnectionController extends Database
 {
-	public function getDb(){
-		$db = new PDO('mysql:host=localhost;dbname=blog_p4;charset=utf8', 'root', '');
-
-		return $db;
-
-	}
 
 	public function checkConnection(){
 		if (isset($_POST['nickname']) && isset($_POST['password']))
@@ -29,7 +23,7 @@ class ConnectionController
 				session_start();
 				$_SESSION['nickname'] = $check_user->nickname();
 
-				if ($check_user->nickname() == "JeanAdmin") {
+				if ($check_user->role() == "admin") {
 					header('Location: '.HOST.'admin.html');
 				}
 				else {

@@ -1,21 +1,117 @@
-h1, h2, h3
-{
-  text-align:center;
-}
-
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  font-size: 20px;
+  color: #212529;
+  font-family: 'Lora', 'Times New Roman', serif;
 }
 
-.bloc-page{
-  width: 90%;
-  margin: auto;
+p {
+  line-height: 1.5;
+  margin: 30px 0;
 }
 
-.panel-primary{
-  border: black solid;
-  padding: 2%;
+p a {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #212529;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+a:focus, a:hover {
+  color: #0085A1;
+}
+
+#mainNav {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e9ecef;
+  background-color: white;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+#mainNav .navbar-toggler {
+  font-size: 12px;
+  font-weight: 800;
+  padding: 13px;
+  text-transform: uppercase;
+  color: #343a40;
+}
+
+#mainNav .navbar-nav>li.nav-item>a {
+  padding: 10px 20px;
+}
+#mainNav .navbar-nav>li.nav-item>a {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 992px){
+  #mainNav .navbar-brand {
+    padding: 10px 20px;
+  }
+}
+
+#link_2 {
+  display: none;
+}
+
+.header-absolute-title {
+  position: absolute;
+}
+
+.new-header {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  margin-bottom: 50px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #212529;
+  opacity: .5;
+}
+
+.page-heading {
+  padding: 200px 0 150px;
+  color: white;
+  text-align: center;
+}
+
+.page-heading h1 {
+  font-size: 50px;
+  margin-top: 0;
+}
+
+.page-heading .subheading {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.1;
+  display: block;
+  margin: 10px 0 0;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .my-header, .user_bar {
@@ -23,108 +119,50 @@ body {
   justify-content: space-between;
 }
 
-.input-group{
-  display: flex;
-  flex-direction: column;
-  padding: 2%;
+.post-preview > a {
+  color: #212529;
 }
 
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.content-area
-{
-  background-color:#CCCCCC;
-  margin-top:0px;
-  padding: 2%;
-}
-
-.news
-{
-  width:90%;
-  margin:auto;
-}
-
-a
-{
+.post-preview > a:focus, .post-preview > a:hover {
   text-decoration: none;
-  color: blue;
+  color: #0085A1;
 }
 
-.form-bloc, .flex-space {
+.post-title {
+  font-size: 30px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.post-subtitle {
+  font-weight: 300;
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+.post-meta {
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 0;
+  color: #868e96;
+}
+
+.flex-space {
   display: flex;
   justify-content: space-between;
 }
 
-/* Style all input fields */
-input, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
+footer {
+  padding: 50px 0 65px;
 }
 
-/* Style the submit button */
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
+.connected-user {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Style the container for inputs */
-.container {
-  background-color: #f1f1f1;
-  padding: 20px;
-}
-
-/* The message box is shown when the user clicks on the password field */
-#message {
-  display: none;
-  position: relative;
-}
-
-/* Add a green text color and a checkmark when the requirements are right */
-.valid {
-  color: green;
-}
-
-.valid:before {
-  position: relative;
-  left: -35px;
-  content: "\002714";
-}
-
-/* Add a red text color and an "x" icon when the requirements are wrong */
-.invalid {
-  color: red;
-}
-
-.invalid:before {
-  position: relative;
-  left: -10px;
-  content: "\2716";
-}
-
-.admin-block {
-  display: flex;
-}
-
-.admin-navbar {
-  display: flex;
-  width: 20%;
-  flex-direction: column;
-}
-
-.admin-main-part {
-  margin-left: 20px;
-  width: 80%;
-}
-
-.bordering {
-  border: solid black 2px;
-  padding: 5px;
+.copyright {
+  font-size: 14px;
+  margin-bottom: 0;
+  text-align: center;
 }

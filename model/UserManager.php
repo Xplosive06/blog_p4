@@ -1,11 +1,11 @@
 <?php
-class UserManager
+class UserManager extends Database
 {
   private $_db;
 
-  public function __construct($db)
+  public function __construct()
   {
-    $this->setDb($db);
+    $this->_db = $this->getDb();
   }
 
   public function add(User $user)
@@ -28,7 +28,7 @@ class UserManager
   public function get($nickname)
   {
 
-    $q = $this->_db->prepare('SELECT id, nickname, password, creation_date FROM users WHERE nickname = :nickname');
+    $q = $this->_db->prepare('SELECT id, nickname, password, creation_date, role FROM users WHERE nickname = :nickname');
     $q->execute(array(
       'nickname' => $nickname));
     $donnees = $q->fetch();
@@ -40,7 +40,7 @@ class UserManager
   {
     $users = [];
 
-    $q = $this->_db->query('SELECT id, nickname, creation_date FROM users ORDER BY creation_date');
+    $q = $this->_db->query('SELECT id, nickname, creation_date, role FROM users ORDER BY creation_date');
 
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
     {
@@ -53,17 +53,13 @@ class UserManager
 
   public function update(User $user)
   {
-    $q = $this->_db->prepare('UPDATE users SET id = :id, nickname = :nickname, password = :password, creation_date = now() WHERE id = :id');
+    $q = $this->_db->prepare('UPDATE users SET id = :id, nickname = :nickname, password = :password, creation_date = now(), role = :role WHERE id = :id');
 
     $q->bindValue(':id', $user->id(), PDO::PARAM_INT);
     $q->bindValue(':nickname', $user->nickname());
     $q->bindValue(':password', $user->password());
+    $q->bindValue(':role', $user->role());
 
     $q->execute();
-  }
-
-  public function setDb(PDO $db)
-  {
-    $this->_db = $db;
   }
 }

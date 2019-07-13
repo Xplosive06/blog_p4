@@ -23,6 +23,7 @@ class MyAutoload
 
         define('CSS', HOST.'public/css/');
         define('JS', HOST.'public/js/');
+        define('IMG', HOST.'public/img/');
     }
 
     public static function autoload($class)

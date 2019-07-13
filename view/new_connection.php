@@ -6,8 +6,8 @@
 
 		<form class="panel-primary" method="post" action="<?php echo HOST.'add_user.html'?>">
 			<div class="panel-heading">Nouveau compte</div>
-			<div class="form-bloc">
-				<div class="left-side-form">
+			<div class="new-connection-block">
+				<div class="new-connection-inputs">
 					<div class="input-group">
 						<label for="nickname">Pseudo: </label><input class="input-sm" id="nickname" type="text" name="nickname" autocomplete="username" required><br></div>
 						<div class="input-group">
@@ -18,13 +18,13 @@
 									<button type="submit" class="btn-success" onclick="return validate()">Envoyer</button>
 								</div>
 							</div>
-							<div class="right-side-form">
+							<div class="verification-block">
 								<div id="message">
 									<h3>Votre mot de passe doît contenir :</h3>
 									<p id="letter" class="invalid">Une lettre en <b>minuscule</b></p>
 									<p id="capital" class="invalid">Une lettre en <b>capitale</b></p>
 									<p id="number" class="invalid">Un <b>chiffre</b></p>
-									<p id="length" class="invalid">Au minimum<b>8 caractères</b></p>
+									<p id="length" class="invalid">Au minimum <b>8 caractères</b></p>
 								</div>
 							</div>
 

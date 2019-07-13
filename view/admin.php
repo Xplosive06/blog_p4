@@ -1,4 +1,4 @@
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/lpvl4tywiu6tvv87f912fuq0m91f8932hn5q699euk1oy2y8/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 <script>
 	tinymce.init({selector: '#content'});
@@ -42,7 +42,7 @@
 				</form>
 			</div>
 
-			<div id="posts" class="tab-pane panel-primary admin-main-part fade">
+			<div id="posts" class="tab-pane admin-main-part fade">
 				<h3>Tous les articles</h3>
 				<?php 
 
@@ -61,7 +61,7 @@
 							nl2br(htmlspecialchars($post->content()));
 							?>
 						</p>
-						<em><a href="<?php echo HOST.'comments.html?get_post_id='?><?= $post->id() ?>"><?=$comment_manager->getNumberOfComments($post->id())?> Commentaires</a></em>
+						<em><a href="<?php echo HOST.'post.html?get_post_id='?><?= $post->id() ?>"><?=$comment_manager->getNumberOfComments($post->id())?> commentaire<?php if($comment_manager->getNumberOfComments($post->id())>1){echo 's';}?></a></em>
 						<form method="POST" action="<?php echo HOST.'delete_post.html'?>">
 
 							<button type="submit" class="btn-danger" name="post_id" value="<?= $post->id()?>">Supprimer</button>

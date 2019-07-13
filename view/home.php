@@ -1,35 +1,64 @@
 <body>
     <div class="bloc-page">
-        
-        <h1>Le blog de Jean</h1>
 
-        <h1>Derniers billets du blog :</h1>
+        <header>
+            <div class="new-header" style='background-image: url("<?php echo IMG.'mast-header.jpg'?>")'>
 
-        <?php 
-        foreach ($posts as $key => $post) {
+                <!-- <div class="overlay"></div> -->
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                      <div class="page-heading">
+                        <h1>Blog de Jean</h1>
+                        <span class="subheading">Mon blog de voyage</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            ?>
-            <div class="news">
-                <h3>
-                    <?= htmlspecialchars($post->title()); ?>
-                    <em>le <?= $post->creation_date()?></em>
-                </h3>
-                <div class="content-area">
-                    <p>
+</header>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <?php 
+            foreach ($posts as $key => $post) {
+
+                ?>
+
+                <div class="post-preview">
+                    <a href="<?php echo HOST.'post.html?get_post_id='?><?= $post->id() ?>">
+                        <h2 class="post-title">
+                            <?= htmlspecialchars($post->title()); ?>
+                        </h2>
+                    <h3 class="post-subtitle">
                         <?=
                         nl2br(htmlspecialchars($post->content()));
-                        ?>
-                        <br />
-                    </p>
-                    <div class="flex-space">
-                        <em><a href="<?php echo HOST.'comments.html?get_post_id='?><?= $post->id() ?>"><?=$comment_manager->getNumberOfComments($post->id())?> commentaires</a></em>
-                        
+                        ?> ...
+                    </h3>
+                    </a>
+                    <div class="flex-space post-meta">
+
+                        <em>
+
+                            <span><?=$comment_manager->getNumberOfComments($post->id())?> commentaire<?php 
+
+                            if($comment_manager->getNumberOfComments($post->id())>1){echo 's';}?></span></em>
+
+                            <em>le <?= $post->creation_date()?></em>
+
+                        </div>
+
+                        <hr>
+
                     </div>
 
-                </div>
-
+                    <?php
+                } 
+                ?>
             </div>
-            <?php
-} 
-?>
+        </div>
+    </div>
 </div>

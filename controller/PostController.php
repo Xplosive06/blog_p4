@@ -2,8 +2,35 @@
 /**
  * 
  */
-class PostController
+class PostController extends Database
 {
+
+	public function showPosts($post_id = null) {
+
+		if(isset($_GET['get_post_id'])){
+			$post_id = $_GET['get_post_id'];
+		}
+		if (isset($post_id) && $post_id > 0) {
+			$db = $this->getDb();
+			$post_manager = new PostManager($db);
+			$post = $post_manager->get($post_id);
+
+			$comment_manager = new CommentManager($db);
+			$comments = $comment_manager->getList($post->id());
+
+			$myView = new View('post_view');
+			$myView->render(array(
+
+				'post' 				=> $post, 
+				'post_manager' 		=> $post_manager, 
+				'comment_manager' 	=> $comment_manager,
+				'comments'			=> $comments
+			));
+		}
+		else {
+			echo 'Erreur : aucun identifiant de billet envoyé';
+		}
+	}
 	
 	public function addPost() {
 		if (strlen($_POST['title'])>0 && strlen($_POST['content'])>0)

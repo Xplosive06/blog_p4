@@ -6,6 +6,7 @@ class User
 	private $_nickname;
 	private $_password;
 	private $_creation_date;
+	private $_role;
 
 	public function __construct($value = array())
 	{
@@ -46,6 +47,11 @@ class User
 	{
 		return $this->_creation_date;
 	}
+
+	public function role()
+	{
+		return $this->_role;
+	}
 		
 	public function setId($id)
 	{
@@ -81,6 +87,11 @@ class User
 	{
 		$this->_creation_date = $creation_date;
 
+	}
+
+	public function setRole($role)
+	{
+		$this->_role = $role;
 	}
 	
 }
