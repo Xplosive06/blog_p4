@@ -6,7 +6,7 @@ body {
 
 p {
   line-height: 1.5;
-  margin: 30px 0;
+
 }
 
 p a {
@@ -145,6 +145,7 @@ a:focus, a:hover {
   font-weight: 300;
   font-size: 20px;
   margin: 0 0 10px;
+  text-align: justify;
 }
 
 .post-meta {
@@ -206,6 +207,19 @@ footer {
     padding-left: 10px;
   }
 
+  .admin-main-part {
+  margin-left: 40px;
+  width: 80%;
+  }
+
+}
+
+.admin-text-area {
+  height: 400px;
+}
+
+.input-lg {
+  width: 100%;
 }
 
 /* ******************* CONNECTION ******************* */
@@ -262,4 +276,27 @@ footer {
     text-transform: uppercase;
     border-radius: 0;
     font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+/* ******************* POST ******************* */
+
+.post-container {
+  margin-top: 70px;
+}
+
+/* ******************* COMMENT ******************* */
+
+.bordering-comment {
+  padding: 30px;
+  -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.btn-report {
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+.to-the-right {
+  align-items: right;
 }

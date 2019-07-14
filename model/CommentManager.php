@@ -30,7 +30,7 @@
   {
     $id = (int) $id;
 
-    $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date FROM comments WHERE id = '.$id);
+    $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%i") AS comment_date FROM comments WHERE id = '.$id);
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
     return new Comment($donnees);
@@ -41,7 +41,7 @@
   {
     $comments = [];
 
-    $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date FROM comments WHERE post_id = '.$post_id.' ORDER BY comment_date DESC');
+    $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%i") AS comment_date FROM comments WHERE post_id = '.$post_id.' ORDER BY comment_date DESC');
 
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
     {

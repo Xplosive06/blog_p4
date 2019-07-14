@@ -1,7 +1,10 @@
 <script src="https://cdn.tiny.cloud/1/lpvl4tywiu6tvv87f912fuq0m91f8932hn5q699euk1oy2y8/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 <script>
-	tinymce.init({selector: '#content'});
+	tinymce.init({
+		selector: 'textarea'
+
+	});
 </script>
 
 <div class="container admin-container">
@@ -25,104 +28,13 @@
 			</li>
 		</ul>
 		<div class="tab-content admin-main-part">
-			<div id="new_post" class="tab-pane active fade show">
-				<form class="panel-primary admin-main-part" method="post" action="<?php echo HOST.'add_post.html'?>" onsubmit="return validateForm()">
+				<?php include VIEW.'admin_new_post.php'?>
 
-					<div class="panel-heading"><h2>Nouvelle publication</h2></div>
-					<div class="input-group">
+				<?php include VIEW.'admin_posts.php'?>
+				
+				<?php include VIEW.'admin_comments.php'?>				
 
-						<label for="title">Titre: </label><input class="input-sm flex-column" id="title" type="text" name="title" required><br></div>
-						<div class="input-group flex-column">
-
-							<label for="content">Message: </label>
-							<textarea class="input-lg" id="content" type="text" name="content" required></textarea>
-
-							<button type="submit" class="btn-success">Envoyer</button>
-
-						</div>
-					</form>
-				</div>
-
-				<div id="posts" class="tab-pane admin-main-part fade">
-					<h2>Tous les articles</h2>
-					<?php 
-
-					foreach ($posts as $key => $post) {
-
-						?>
-						<div class="bordering">
-
-							<p>
-								<p><strong>Titre : </strong><?= htmlspecialchars($post->title()); ?></p>
-								<em><strong>le</strong> <?= $post->creation_date()?></em>
-							</p>
-
-							<p><strong>Contenu :</strong>
-								<?=
-								nl2br(htmlspecialchars($post->content()));
-								?>
-							</p>
-							<em><a href="<?php echo HOST.'post.html?get_post_id='?><?= $post->id() ?>"><?=$comment_manager->getNumberOfComments($post->id())?> commentaire<?php if($comment_manager->getNumberOfComments($post->id())>1){echo 's';}?></a></em>
-							<form method="POST" action="<?php echo HOST.'delete_post.html'?>">
-
-								<button type="submit" class="btn-danger" name="post_id" value="<?= $post->id()?>">Supprimer</button>
-							</form>
-						</div>
-
-					<?php } ?>
-
-				</div>
-
-				<div id="comments" class="tab-pane panel-primary admin-main-part fade">
-					<h2>Les commentaires signalés</h2>
-					<?php 
-					foreach ($posts as $key => $post) {
-
-						$comments = $comment_manager->getList($post->id());
-						foreach ($comments as $key => $comment) {
-							if($comment->reports() > 0){
-
-								?>
-								<div class="bordering">
-
-									<div class="user_bar">
-										<strong><?= $post->creation_date()?></strong> 
-
-										<strong>Titre de la publication : <?= $post->title()?></strong> 
-									</div>
-									<h3>Contenu du commentaire</h3>
-									<strong><?= $comment->comment()?></strong>
-
-									<form method="POST" action="<?php echo HOST.'delete_comment.html'?>">
-
-										<button type="submit" class="btn-danger" name="comment_id" value="<?= $comment->id()?>">Supprimer</button>
-									</form>
-								</div>
-							<?php }?>
-						<?php }?>
-					<?php } ?>
-				</div>
-
-				<div id="users" class="tab-pane panel-primary admin-main-part fade">
-					<h2>Tous les utilisateurs</h2>
-					<?php 
-					foreach ($users as $key => $ad_user) {
-
-						?>
-						<div class="bordering">
-
-							<div class="user_bar"><div><strong>Id : </strong><?= htmlspecialchars($ad_user->id()); ?></div>
-							<strong><?= $ad_user->nickname()?></strong> 
-						</div>
-
-						<form method="POST" action="<?php echo HOST.'delete_user.html'?>">
-
-							<button type="submit" class="btn-danger" name="user_nickname" value="<?= $ad_user->nickname()?>">Supprimer</button>
-						</form>
-					</div>
-
-				<?php } ?>
-			</div>
+				<?php include VIEW.'admin_users.php'?>
 
 		</div>
 

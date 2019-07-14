@@ -35,11 +35,11 @@
                         <h2 class="post-title">
                             <?= htmlspecialchars($post->title()); ?>
                         </h2>
-                    <h3 class="post-subtitle">
+                    <p class="post-subtitle">
                         <?=
-                        nl2br(htmlspecialchars($post->content()));
+                        nl2br($post->content());
                         ?> ...
-                    </h3>
+                    </p>
                     </a>
                     <div class="flex-space post-meta">
 
@@ -54,7 +54,8 @@
                         </div>
 
                     </div>
-
+                    <br>
+                    <hr>
                     <?php
                 } 
                 ?>

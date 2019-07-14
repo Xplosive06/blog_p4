@@ -1,49 +1,91 @@
 
 
 <body>
-    <h1>Mon super blog !</h1>
 
-    <div class="news panel-primary">
-        <h3>
-            <?= htmlspecialchars($post->title()) ?>
-            <em>le <?= $post->creation_date() ?></em>
-        </h3>
+    <div class="container post-container">
+        <div class="row">
 
-        <p>
-            <?= nl2br(htmlspecialchars($post->content())) ?>
-        </p>
-    </div>
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-preview">
+                    <h2 class="post-title">
+                        <?= htmlspecialchars($post->title()) ?>
 
-    <div class="center">
-    <h2>Commentaires</h2>
-    </div>
+                    </h2>
 
-    <div class="news panel-primary">
+                    <p class="post-subtitle">
+                        <?= nl2br($post->content()) ?>
+                    </p>
+                    <div class="flex-space post-meta">
 
-    <?php
-    foreach ($comments as $key => $comment) {
+                        <em>
 
-        ?>
-        
-        <div class="user_bar"><p><strong><?= htmlspecialchars($comment->author()) ?></strong> le <?= $comment->comment_date() ?></p><form method="POST" action="<?php echo HOST.'report_comment.html'?>">
+                            <span><?=$comment_manager->getNumberOfComments($post->id())?> commentaire<?php 
 
-            <button type="submit" class="btn-danger" name="comment_id" value="<?php echo $comment->id()?>">Signaler "<?php echo $comment->reports()?>"</button>
-        </form></div>
-        <p><?= nl2br(htmlspecialchars($comment->comment())) ?></p>
-        <?php
-    }
-    ?>
-    </div>
+                            if($comment_manager->getNumberOfComments($post->id())>1){echo 's';}?></span></em>
 
-    <form class="panel-primary news" method="post" action="<?php echo HOST.'add_comment.html?get_post_id='?><?= $post->id()?>">
+                            <em>le <?= $post->creation_date()?></em>
 
-        <div class="panel-heading">Mon commentaire</div>
-
-        <div class="input-group">
-
-            <label for="comment">Message: </label><textarea class="input-lg" id="comment" type="text" name="comment" required></textarea><br>
-
-            <button type="submit" class="btn-success">Envoyer</button>
-
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
+        <br>
+        <hr>
+        <br>
+
+        <div class="container post-container">
+            <div class="row">
+
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <h2 class="post-title">Commentaires(<?=$comment_manager->getNumberOfComments($post->id())?>)</h2>
+
+                    <br>
+
+                    <?php
+                    foreach ($comments as $key => $comment) {
+
+                        ?>
+                        <div class="post-preview bordering-comment">
+
+                            <div class="user_bar"><strong><?= htmlspecialchars($comment->author()) ?></strong><p> le <?= $comment->comment_date() ?></p></div>
+                            <p><?= nl2br(htmlspecialchars($comment->comment())) ?></p>
+                            <div class="text-right">
+                                <form method="POST" action="<?php echo HOST.'report_comment.html'?>">
+
+                                    <button type="submit" class="btn btn-primary btn-report" name="comment_id" value="<?php echo $comment->id()?>">Signaler "<?php echo $comment->reports()?>"</button>
+                                </form>
+                            </div>
+                        </div>
+                        <br>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+
+                    <form class="panel-primary news" method="post" action="<?php echo HOST.'add_comment.html?get_post_id='?><?= $post->id()?>">
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+
+                                <h2 class="post-title">Mon commentaire</h2>
+
+
+                                <label for="comment">Message: </label><textarea rows="5" class="form-control" placeholder="Message" id="comment" type="text" name="comment" data-validation-required-message="Merci d'entrer votre message." required></textarea>
+
+                            </div>
+                                <button type="submit" class="btn btn-primary">Envoyer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>

@@ -27,7 +27,7 @@
   {
     $id = (int) $id;
 
-    $q = $this->_db->query('SELECT id, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y à %Hh%imin%ss") AS creation_date FROM posts WHERE id = '.$id);
+    $q = $this->_db->query('SELECT id, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y à %Hh%i") AS creation_date FROM posts WHERE id = '.$id);
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
 
@@ -40,7 +40,7 @@
   {
     $posts = [];
 
-    $q = $this->_db->query('SELECT id, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y à %Hh%imin%ss") AS creation_date FROM posts ORDER BY creation_date DESC');
+    $q = $this->_db->query('SELECT id, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y à %Hh%i") AS creation_date FROM posts ORDER BY creation_date DESC');
 
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
     {

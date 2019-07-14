@@ -28,7 +28,7 @@ class UserManager extends Database
   public function get($nickname)
   {
 
-    $q = $this->_db->prepare('SELECT id, nickname, password, creation_date, role FROM users WHERE nickname = :nickname');
+    $q = $this->_db->prepare('SELECT id, nickname, password, DATE_FORMAT(creation_date, "%d/%m/%Y à %Hh%i") AS creation_date, role FROM users WHERE nickname = :nickname');
     $q->execute(array(
       'nickname' => $nickname));
     $donnees = $q->fetch();
@@ -40,7 +40,7 @@ class UserManager extends Database
   {
     $users = [];
 
-    $q = $this->_db->query('SELECT id, nickname, creation_date, role FROM users ORDER BY creation_date');
+    $q = $this->_db->query('SELECT id, nickname, DATE_FORMAT(creation_date, "%d/%m/%Y à %Hh%i") AS creation_date, role FROM users ORDER BY creation_date');
 
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
     {
