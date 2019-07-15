@@ -13,7 +13,7 @@
 
 						<form method="POST" action="<?php echo HOST.'delete_user.html'?>">
 
-							<button type="submit" class="btn-danger" name="user_nickname" value="<?= $ad_user->nickname()?>">Supprimer</button>
+							<button type="submit" class="btn btn-danger" name="user_nickname" value="<?= $ad_user->nickname()?>">Supprimer</button>
 						</form>
 					</div>
 					<br>

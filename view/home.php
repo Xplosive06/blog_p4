@@ -37,7 +37,7 @@
                         </h2>
                     <p class="post-subtitle">
                         <?=
-                        nl2br($post->content());
+                        nl2br($post->getPreview());
                         ?> ...
                     </p>
                     </a>

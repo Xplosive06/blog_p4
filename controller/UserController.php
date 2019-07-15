@@ -22,7 +22,7 @@ class UserController extends Database
 				echo $users->nickname();
 				$nickname = $users->nickname();
 				if($nickname == $_POST['nickname']){
-					echo $nickname."¤¤¤¤ Pseudo existe déjà ! ¤¤¤¤";
+					header('Location: '.HOST.'new_connection.html');
 					$checker = 1;
 				}
 			}
@@ -49,9 +49,12 @@ class UserController extends Database
 
 	public function deleteUser(){
 		if(isset($_POST['user_nickname'])){
-
+			$comment_manager = new CommentManager($this->getDb());
 			$user_manager = new UserManager($this->getDb());
+
 			$user = $user_manager->get($_POST['user_nickname']);
+
+			$comment_manager->deleteAuthorName($user->nickname());
 			$user_manager->delete($user);
 
 			header('Location: '.HOST.'admin.html');

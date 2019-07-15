@@ -60,4 +60,38 @@ class PostController extends Database
 		}
 	}
 
+	public function updatePostForm() {
+		if (isset($_POST['post_id'])){
+			$post_id = $_POST['post_id'];
+			$db = $this->getDb();
+			$post_manager = new PostManager($db);
+			$post = $post_manager->get($post_id);
+
+			$myView = new View('update_post_form');
+			$myView->render(array(
+
+				'post' 				=> $post, 
+			));
+		}
+	}
+
+	public function updatePost() {
+		if (strlen($_POST['title'])>0 && strlen($_POST['content'])>0 && isset($_GET['get_post_id']))
+		{
+			$post_manager = new PostManager($this->getDb());
+			$post = $post_manager->get($_GET['get_post_id']);
+
+			$post->setTitle($_POST['title']);
+			$post->setContent($_POST['content']);
+			$post_manager->update($post);
+
+			header('Location: '.HOST.'admin.html');
+
+		}
+		else {
+			echo "Title ou content incorrects";
+		}
+
+	}
+
 }

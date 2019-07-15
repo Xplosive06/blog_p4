@@ -1,11 +1,11 @@
   <?php
-  class PostManager
+  class PostManager extends DataBase
   {
   private $_db;
 
   public function __construct($db)
   {
-    $this->setDb($db);
+    $this->_db = $this->getDb();
   }
 
   public function add(Post $post)
@@ -59,10 +59,5 @@
     $q->bindValue(':content', $post->content());
 
     $q->execute();
-  }
-
-  public function setDb(PDO $db)
-  {
-    $this->_db = $db;
   }
 }

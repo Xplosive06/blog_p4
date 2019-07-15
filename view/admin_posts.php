@@ -18,10 +18,16 @@
 								?>
 							</p>
 							<em><a href="<?php echo HOST.'post.html?get_post_id='?><?= $post->id() ?>"><?=$comment_manager->getNumberOfComments($post->id())?> commentaire<?php if($comment_manager->getNumberOfComments($post->id())>1){echo 's';}?></a></em>
+							<div class="flex-space">
 							<form method="POST" action="<?php echo HOST.'delete_post.html'?>">
 
-								<button type="submit" class="btn-danger" name="post_id" value="<?= $post->id()?>">Supprimer</button>
+								<button type="submit" class="btn btn-danger" name="post_id" value="<?= $post->id()?>">Supprimer</button>
 							</form>
+							<form method="POST" action="<?php echo HOST.'update_post_form.html'?>">
+
+								<button type="submit" class="btn btn-primary" name="post_id" value="<?= $post->id()?>">Éditer</button>
+							</form>
+							</div>
 						</div>
 						<br>
 

@@ -45,6 +45,13 @@ class Post
 	{
 		return $this->_creation_date;
 	}
+
+	public function getPreview(){
+		$pos = strpos($this->content(), ' ', 1000);
+        $result = substr($this->content(), 0, $pos); 
+
+        return $result;
+	}
 		
 	public function setId($id)
 	{

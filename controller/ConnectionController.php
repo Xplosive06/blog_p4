@@ -33,7 +33,7 @@ class ConnectionController extends Database
 
 			}
 			else {
-				echo 'Mauvais identifiant ou mot de passe !';
+				$this->showConnectionCheck();
 			}
 
 

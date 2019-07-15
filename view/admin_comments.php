@@ -20,7 +20,7 @@
 
 										<form method="POST" action="<?php echo HOST.'delete_comment.html'?>">
 
-											<button type="submit" class="btn-danger" name="comment_id" value="<?= $comment->id()?>">Supprimer</button>
+											<button type="submit" class="btn btn-danger" name="comment_id" value="<?= $comment->id()?>">Supprimer</button>
 										</form>
 									</div>
 								</div>

@@ -280,7 +280,7 @@ footer {
 
 /* ******************* POST ******************* */
 
-.post-container {
+.post-container, .update-post-container {
   margin-top: 70px;
 }
 

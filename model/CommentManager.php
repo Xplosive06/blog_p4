@@ -16,8 +16,6 @@
     $q->bindValue(':author', $comment->author());
     $q->bindValue(':comment', $comment->comment());
 
-    echo "fonction add() appellée";
-
     $q->execute();
   }
 
@@ -49,6 +47,30 @@
     }
 
     return $comments;
+  }
+
+  public function getUserComments($author)
+  {
+    $comments = [];
+
+    $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%i") AS comment_date FROM comments WHERE author = "'.$author.'" ORDER BY comment_date DESC');
+
+    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+    {
+      $comments[] = new Comment($donnees);
+    }
+
+    return $comments;
+  }
+
+  public function deleteAuthorName($author)
+  {
+    $comments = $this->getUserComments($author);
+
+    foreach ($comments as $key => $comment) {
+      $comment->setAuthor('Utilisateur supprimé');
+      $this->update($comment);
+    }
   }
 
   public function getNumberOfComments($post_id)

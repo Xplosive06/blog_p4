@@ -12,8 +12,6 @@ class UserManager extends Database
   {
     $q = $this->_db->prepare('INSERT INTO users(nickname, password) VALUES(:nickname, :password)');
 
-    echo 'UserManager fonction add()';
-
     $q->bindValue(':nickname', $user->nickname());
     $q->bindValue(':password', $user->password());
 
