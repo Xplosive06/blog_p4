@@ -44,7 +44,11 @@ class View
 
     public function startSession()
     {
-        session_start();
+        if(!isset($_SESSION)) 
+        { 
+            session_start(); 
+        }
+        
         $request = $_GET['r'];
         $user_link = 'Non connecté';
         $link_2 = ''; 

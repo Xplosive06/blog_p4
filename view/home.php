@@ -38,7 +38,7 @@
                     <p class="post-subtitle">
                         <?=
                         nl2br($post->getPreview());
-                        ?> ...
+                        ?>
                     </p>
                     </a>
                     <div class="flex-space post-meta">

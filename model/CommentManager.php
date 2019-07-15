@@ -1,11 +1,11 @@
   <?php
-  class CommentManager
+  class CommentManager extends Database
   {
   private $_db;
 
-  public function __construct($db)
+  public function __construct()
   {
-    $this->setDb($db);
+    $this->_db = $this->getDb();
   }
 
   public function add(Comment $comment)
@@ -39,7 +39,7 @@
   {
     $comments = [];
 
-    $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%i") AS comment_date FROM comments WHERE post_id = '.$post_id.' ORDER BY comment_date DESC');
+    $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%i") AS comment_date FROM comments WHERE post_id = '.$post_id.' ORDER BY comment_date ASC');
 
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
     {
@@ -108,8 +108,4 @@
 
   }
 
-  public function setDb(PDO $db)
-  {
-    $this->_db = $db;
-  }
 }

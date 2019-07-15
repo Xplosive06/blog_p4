@@ -47,10 +47,16 @@ class Post
 	}
 
 	public function getPreview(){
+		if(strlen($this->content()) > 1000){
 		$pos = strpos($this->content(), ' ', 1000);
         $result = substr($this->content(), 0, $pos); 
 
-        return $result;
+        return $result.' ...';
+
+    }else {
+
+    	return $this->content();
+    }
 	}
 		
 	public function setId($id)

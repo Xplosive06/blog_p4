@@ -29,14 +29,10 @@ class ConnectionController extends Database
 				else {
 					header('Location: '.HOST.'home.html');
 				}
-
-
 			}
 			else {
 				$this->showConnectionCheck();
 			}
-
-
 		}
 	}
 
