@@ -8,7 +8,7 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
-                      <div class="page-heading">
+                      <div class="page-heading b-left">
                         <h1>Blog de Jean</h1>
                         <span class="subheading">Mon blog de voyage</span>
                     </div>
@@ -30,7 +30,7 @@
 
                 ?>
 
-                <div class="post-preview">
+                <div class="post-preview post-preview-home">
                     <a href="<?php echo HOST.'post.html?get_post_id='?><?= $post->id() ?>">
                         <h2 class="post-title">
                             <?= htmlspecialchars($post->title()); ?>

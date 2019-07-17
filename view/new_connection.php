@@ -16,7 +16,7 @@
 						<div class="control-group">
 							<div class="form-group floating-label-form-group controls">
 								<label for="password">Mot de passe: </label><input class="form-control" id="password" type="password" name="password"
-								placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="new-password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></input>
+								placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="new-password" title="Le mot de passe doît contenir au moins : un chiffre, une majuscule, une minuscule et 8 caractères minimum" required></input>
 							</div>
 						</div>
 						<div class="control-group">

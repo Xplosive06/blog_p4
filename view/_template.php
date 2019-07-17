@@ -1,7 +1,3 @@
-<?php 
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +16,7 @@
 	<title>Le blog de Jean</title>
 
 </head>
+<header>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 	<div class="container">
 		<a class="navbar-brand" href='<?php echo HOST."home.html"?>'>Jean On The Road</a>
@@ -45,6 +42,7 @@
 		</div>
 	</div>
 </nav>
+</header>
 
 <?php echo $contentPage ;?>
 
