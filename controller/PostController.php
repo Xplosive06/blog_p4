@@ -5,17 +5,17 @@
 class PostController extends Database
 {
 
-	public function showPosts($post_id = null) {
+	public function showPosts() {
 
 		if(isset($_GET['get_post_id'])){
 			$post_id = $_GET['get_post_id'];
 		}
 		if (isset($post_id) && $post_id > 0) {
-			$db = $this->getDb();
-			$post_manager = new PostManager($db);
+
+			$post_manager = new PostManager();
 			$post = $post_manager->get($post_id);
 
-			$comment_manager = new CommentManager($db);
+			$comment_manager = new CommentManager();
 			$comments = $comment_manager->getList($post->id());
 
 			$myView = new View('post_view');
@@ -26,6 +26,7 @@ class PostController extends Database
 				'comment_manager' 	=> $comment_manager,
 				'comments'			=> $comments
 			));
+
 		}
 		else {
 			echo 'Erreur : aucun identifiant de billet envoyé';
@@ -35,7 +36,7 @@ class PostController extends Database
 	public function addPost() {
 		if (strlen($_POST['title'])>0 && strlen($_POST['content'])>0)
 		{
-			$post_manager = new PostManager($this->getDb());
+			$post_manager = new PostManager();
 			$post = new Post();
 			$post->setTitle($_POST['title']);
 			$post->setContent($_POST['content']);
@@ -53,7 +54,7 @@ class PostController extends Database
 		if (isset($_POST['post_id'])){
 			$post_id = $_POST['post_id'];
 
-			$post_manager = new PostManager($this->getDb());
+			$post_manager = new PostManager();
 			$post = $post_manager->get($post_id);
 			$post_manager->delete($post);
 			header('Location: '.HOST.'admin.html');
@@ -63,8 +64,8 @@ class PostController extends Database
 	public function updatePostForm() {
 		if (isset($_POST['post_id'])){
 			$post_id = $_POST['post_id'];
-			$db = $this->getDb();
-			$post_manager = new PostManager($db);
+
+			$post_manager = new PostManager();
 			$post = $post_manager->get($post_id);
 
 			$myView = new View('update_post_form');
@@ -78,7 +79,7 @@ class PostController extends Database
 	public function updatePost() {
 		if (strlen($_POST['title'])>0 && strlen($_POST['content'])>0 && isset($_GET['get_post_id']))
 		{
-			$post_manager = new PostManager($this->getDb());
+			$post_manager = new PostManager();
 			$post = $post_manager->get($_GET['get_post_id']);
 
 			$post->setTitle($_POST['title']);

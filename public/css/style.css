@@ -4,6 +4,10 @@ body {
   font-family: 'Lora', 'Times New Roman', serif;
 }
 
+.tox-tinymce {
+  height: 600px !important;
+}
+
 p {
   line-height: 1.5;
 
