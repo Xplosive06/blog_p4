@@ -35,11 +35,11 @@
                         <h2 class="post-title">
                             <?= htmlspecialchars($post->title()); ?>
                         </h2>
-                    <p class="post-subtitle">
-                        <?=
-                        nl2br($post->getPreview());
-                        ?>
-                    </p>
+                        <p class="post-subtitle">
+                            <?=
+                            nl2br($post->getPreview());
+                            ?>
+                        </p>
                     </a>
                     <div class="flex-space post-meta">
 

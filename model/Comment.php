@@ -57,7 +57,7 @@ class Comment
 	{
 		return $this->_reports;
 	}
-		
+	
 	public function setId($id)
 	{
 

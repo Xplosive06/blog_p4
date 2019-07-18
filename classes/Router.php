@@ -4,7 +4,7 @@ include CONTROLLER.'Home.php';
 /**
  * Class Routeur
  *
- * create routes and find controller
+ * 
  */
 class Router
 {

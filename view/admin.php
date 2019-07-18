@@ -28,13 +28,13 @@
 			</li>
 		</ul>
 		<div class="tab-content admin-main-part">
-				<?php include VIEW.'admin_new_post.php'?>
+			<?php include VIEW.'admin_new_post.php'?>
 
-				<?php include VIEW.'admin_posts.php'?>
-				
-				<?php include VIEW.'admin_comments.php'?>				
+			<?php include VIEW.'admin_posts.php'?>
+			
+			<?php include VIEW.'admin_comments.php'?>				
 
-				<?php include VIEW.'admin_users.php'?>
+			<?php include VIEW.'admin_users.php'?>
 
 		</div>
 

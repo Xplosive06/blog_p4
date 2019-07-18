@@ -52,7 +52,7 @@ class User
 	{
 		return $this->_role;
 	}
-		
+	
 	public function setId($id)
 	{
 

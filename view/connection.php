@@ -11,19 +11,19 @@
 							<label for="nickname">Pseudo: </label><input class="form-control" id="nickname" placeholder="Pseudo" type="text" name="nickname" required></div>
 						</div>
 						<div class="control-group">
-						<div class="form-group floating-label-form-group controls">
-							<label for="password">Mot de passe: </label><input class="form-control" id="password" placeholder="Mot de passe" type="password" name="password" required></input>
-						</div>
-						</div>
-							<div class="flex-space">
-								<button type="submit" class="btn btn-primary">Envoyer</button>
-								<a href="<?php echo HOST.'new_connection.html'?>">Pas encore de compte?</a>
+							<div class="form-group floating-label-form-group controls">
+								<label for="password">Mot de passe: </label><input class="form-control" id="password" placeholder="Mot de passe" type="password" name="password" required></input>
 							</div>
+						</div>
+						<div class="flex-space connection-buttons">
+							<button type="submit" class="btn btn-primary">Envoyer</button>
+							<a class="a-phone-size" href="<?php echo HOST.'new_connection.html'?>">Pas encore de compte?</a>
+						</div>
 
-						</form>
-
-					</div>
+					</form>
 
 				</div>
 
 			</div>
+
+		</div>

@@ -46,19 +46,22 @@ class Post
 		return $this->_creation_date;
 	}
 
-	public function getPreview(){
-		if(strlen($this->content()) > 1000){
-		$pos = strpos($this->content(), ' ', 1000);
-        $result = substr($this->content(), 0, $pos); 
+	public function getPreview()
+	{
 
-        return $result.' ...';
+		if(strlen($this->content()) > 200){
 
-    }else {
+			$pos = strpos($this->content(), ' ', 200);
+			$result = substr($this->content(), 0, $pos); 
 
-    	return $this->content();
-    }
+			return $result.' ...';
+
+		}else {
+
+			return $this->content();
+		}
 	}
-		
+	
 	public function setId($id)
 	{
 

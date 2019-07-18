@@ -35,6 +35,7 @@ a {
 
 a:focus, a:hover {
   color: #0085A1;
+  text-decoration: none;
 }
 
 #mainNav {
@@ -226,6 +227,22 @@ footer {
   width: 100%;
 }
 
+@media all and (max-width: 500px){
+  .admin-block {
+    display: block;
+  }
+
+  .admin-navbar {
+    width: 100%;
+  }
+
+  .admin-main-part {
+    width: 100%;
+    margin-left: 0px;
+  }
+}
+
+
 /* ******************* CONNECTION ******************* */
 
 .connection-container {
@@ -282,6 +299,12 @@ footer {
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
+@media all and (max-width: 500px){
+  .a-phone-size {
+    font-size: 14px;
+  }
+}
+
 /* ******************* POST ******************* */
 
 .post-container, .update-post-container {
@@ -326,4 +349,10 @@ a:hover {
 
 .b-left {
   animation: slideInFromLeft 2s;
+}
+
+@media all and (max-width: 500px){
+  .post-comment-container{
+    margin-top: 0px;
+  }
 }

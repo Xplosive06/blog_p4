@@ -6,26 +6,27 @@
 	});
 </script>
 
-<div id="update_post" class="tab-pane active fade show update-post-container">
+<div id="update_post" class="container update-post-container">
 	<form class="panel-primary" method="post" action="<?php echo HOST.'update_post.html?get_post_id='.$post->id()?>" onsubmit="return validateForm()">
 
 		<div class="panel-heading">
-			<h2>Éditer la publication</h2></div>
-			<div class="control-group">
-				<div class="form-group floating-label-form-group controls">
+			<h2>Éditer la publication</h2>
+		</div>
+		<div class="control-group">
+			<div class="form-group floating-label-form-group controls">
 
-					<label for="title">Titre: </label>
-					<input class="input-lg flex-column" id="title" value="<?= $post->title()?>" data-validation-required-message="Merci d'entrer un titre." type="text" name="title" required>
-
-				</div>
-			</div>
-			<div class="control-group">
-
-				<label for="content">Contenu : </label>
-				<textarea class="input-lg" id="content" type="text" name="content"><?= $post->content()?></textarea>
-
-				<button type="submit" class="btn btn-primary">Envoyer</button>
+				<label for="title">Titre: </label>
+				<input class="input-lg flex-column" id="title" value="<?= $post->title()?>" data-validation-required-message="Merci d'entrer un titre." type="text" name="title" required>
 
 			</div>
-		</form>
-	</div>
+		</div>
+		<div class="control-group">
+
+			<label for="content">Contenu : </label>
+			<textarea class="input-lg" id="content" type="text" name="content"><?= $post->content()?></textarea>
+
+			<button type="submit" class="btn btn-primary">Envoyer</button>
+
+		</div>
+	</form>
+</div>
