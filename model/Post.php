@@ -4,6 +4,7 @@ class Post
 	private $_id;
 	private $_title;
 	private $_content;
+	private $_image;
 	private $_creation_date;
 
 	public function __construct($value = array())
@@ -39,6 +40,11 @@ class Post
 	public function content()
 	{
 		return $this->_content;
+	}
+
+		public function image()
+	{
+		return $this->_image;
 	}
 	
 	public function creation_date()
@@ -89,6 +95,13 @@ class Post
 		{
 			$this->_content = $content;
 		}
+	}
+
+	public function setImage($image = NULL)
+	{
+
+		$this->_image = $image;
+
 	}
 
 	public function setCreation_date($creation_date)

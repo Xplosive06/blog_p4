@@ -34,4 +34,4 @@
 		</div>
 
 
-		<script src="<?php echo JS.'form_check.js'?>"></script>
+		<script src="<?php echo JS.'button_confirm.js'?>"></script>

@@ -1,11 +1,6 @@
 <?php
 include CONTROLLER.'Home.php';
 
-/**
- * Class Routeur
- *
- * 
- */
 class Router
 {
     private $request;
@@ -75,14 +70,14 @@ class Router
         
         $route  = $this->getRoute();
         $params = $this->getParams();
-        
+        //check if we have registered the route
         if(key_exists($route, $this->routes))
         {
 
             // authorisation
             $controller = $this->routes[$route]['controller'];
             $method     = $this->routes[$route]['method'];
-
+            // Get the name and the method of the controller refered in the $routes
             $currentController = new $controller();
             $currentController->$method($params);
 

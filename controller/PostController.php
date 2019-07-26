@@ -40,6 +40,9 @@ class PostController extends Database
 			$post = new Post();
 			$post->setTitle($_POST['title']);
 			$post->setContent($_POST['content']);
+
+			$this->checkImage($post);
+
 			$post_manager->add($post);
 
 			header('Location: '.HOST.'admin.html');
@@ -71,7 +74,7 @@ class PostController extends Database
 			$myView = new View('update_post_form');
 			$myView->render(array(
 
-				'post' 				=> $post, 
+				'post' => $post, 
 			));
 		}
 	}
@@ -82,8 +85,22 @@ class PostController extends Database
 			$post_manager = new PostManager();
 			$post = $post_manager->get($_GET['get_post_id']);
 
+			if($post->image()) 
+			{
+				$image_to_delete = ROOT.$post->image();
+
+				if (file_exists($image_to_delete)) {
+					unlink($image_to_delete);
+				} else {
+					echo " L'image n'existe pas ou plus";
+				}
+			}
+
 			$post->setTitle($_POST['title']);
 			$post->setContent($_POST['content']);
+			
+			$this->checkImage($post);
+
 			$post_manager->update($post);
 
 			header('Location: '.HOST.'admin.html');
@@ -93,6 +110,22 @@ class PostController extends Database
 			echo "Title ou content incorrects";
 		}
 
+	}
+
+	function checkImage($post){
+		if (file_get_contents($_FILES['image']["tmp_name"]) !== NULL) {
+			$folder = 'public/img/';
+			$uploaddir = ROOT.$folder;
+			$uploadfile = $uploaddir . basename($_FILES['image']['name'] . time());
+
+			if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+				echo "File is valid, and was successfully uploaded.\n";
+				$post->setImage($folder . basename($_FILES['image']['name']) . time());
+			} else {
+				echo "Upload failed";
+			}
+
+		}
 	}
 
 }

@@ -7,7 +7,7 @@
 </script>
 
 <div id="update_post" class="container update-post-container">
-	<form class="panel-primary" method="post" action="<?php echo HOST.'update_post.html?get_post_id='.$post->id()?>" onsubmit="return validateForm()">
+	<form class="panel-primary" method="post" enctype="multipart/form-data" action="<?php echo HOST.'update_post.html?get_post_id='.$post->id()?>" onsubmit="return validateForm()">
 
 		<div class="panel-heading">
 			<h2>Éditer la publication</h2>
@@ -20,6 +20,14 @@
 
 			</div>
 		</div>
+		<div class="control-group">
+							<div class="form-group floating-label-form-group controls">
+
+								<label for="image">Insérer une image : </label>
+								<input type="hidden" name="MAX_FILE_SIZE" value="512000" />
+								<input type="file" name="image" id="image">
+							</div>
+						</div>
 		<div class="control-group">
 
 			<label for="content">Contenu : </label>

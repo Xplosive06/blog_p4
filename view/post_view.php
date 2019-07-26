@@ -5,6 +5,14 @@
 
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-preview">
+                    <?php if ($post->image()) {
+                    ?>
+                    <br>
+                    <div class="text-center">
+                    <img class="img-thumbnail" src="<?php echo HOST.$post->image()?>">
+                    </div>
+
+                   <?php } ?>
                     <h2 class="post-title">
                         <?= htmlspecialchars($post->title()) ?>
 
