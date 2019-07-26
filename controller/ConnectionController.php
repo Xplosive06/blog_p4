@@ -1,7 +1,5 @@
 <?php
-/**
- * 
- */
+
 class ConnectionController extends Database
 {
 
@@ -16,9 +14,9 @@ class ConnectionController extends Database
 			$user_manager = new UserManager($db);
 			$check_user = $user_manager->get($user_nickname);
 
-	// Comparaison du pass envoyé via le formulaire avec la base
+	// Compared sended pass to pass in db
 			$isPasswordCorrect = password_verify($_POST['password'], $check_user->password());
-
+			// If OK : start the session with the good nicknaùe
 			if ($isPasswordCorrect) {
 				session_start();
 				$_SESSION['nickname'] = $check_user->nickname();
@@ -30,7 +28,7 @@ class ConnectionController extends Database
 					header('Location: '.HOST.'home.html');
 				}
 			}
-			else {
+			else { // If NOT : go back to connection page
 				$this->showConnectionCheck();
 			}
 		}

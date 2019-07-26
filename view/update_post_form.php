@@ -7,7 +7,7 @@
 </script>
 
 <div id="update_post" class="container update-post-container">
-	<form class="panel-primary" method="post" enctype="multipart/form-data" action="<?php echo HOST.'update_post.html?get_post_id='.$post->id()?>" onsubmit="return validateForm()">
+	<form class="panel-primary" method="post" enctype="multipart/form-data" action="<?= HOST.'update_post.html?get_post_id='.$post->id()?>" onsubmit="return validateForm()">
 
 		<div class="panel-heading">
 			<h2>Éditer la publication</h2>

@@ -1,4 +1,3 @@
-
 <body>
 	<div class="container connection-container">
 
@@ -7,7 +6,7 @@
 
 				<h1>Créer un nouveau compte</h1>
 
-				<form class="panel-primary" method="post" action="<?php echo HOST.'add_user.html'?>">
+				<form class="panel-primary" method="post" action="<?= HOST.'add_user.html'?>">
 
 					<div class="control-group">
 						<div class="form-group floating-label-form-group controls">
@@ -34,4 +33,4 @@
 		</div>
 
 
-		<script src="<?php echo JS.'button_confirm.js'?>"></script>
+		<script src="<?= JS.'button_confirm.js'?>"></script>

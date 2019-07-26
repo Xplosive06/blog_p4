@@ -29,6 +29,7 @@
       $id = (int) $id;
 
       $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%i") AS comment_date FROM comments WHERE id = '.$id);
+      
       $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
       return new Comment($donnees);
@@ -62,7 +63,7 @@
 
       return $comments;
     }
-
+    //Change the name of the deleted User
     public function deleteAuthorName($author)
     {
       $comments = $this->getUserComments($author);

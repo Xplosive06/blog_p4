@@ -1,13 +1,11 @@
 <?php 
-/**
- * 
- */
+
 class CommentController extends Database
 {
 
 	public function addComment() {
 		session_start();
-
+		// If user is connected and post does exist
 		if (strlen($_POST['comment']) && isset($_SESSION['nickname']) && isset($_GET['get_post_id'])){
 
 			$db = $this->getDb();
@@ -23,6 +21,7 @@ class CommentController extends Database
 
 			header('Location: '.HOST.'post.html?get_post_id='.$_GET['get_post_id']);
 		}elseif (!isset($_SESSION['nickname'])) {
+			// If not connected
 			header('Location: '.HOST.'connection.html');
 		}
 	}

@@ -19,7 +19,7 @@ class Router
         "delete_post.html"          => ["controller" => 'PostController', "method" => 'deletePost'],
         "update_post_form.html"     => ["controller" => 'PostController', "method" => 'updatePostForm'],
         "update_post.html"          => ["controller" => 'PostController', "method" => 'updatePost'],
-        "post.html"                 => ["controller" => 'PostController', "method" => 'showPosts'],
+        "post.html"                 => ["controller" => 'PostController', "method" => 'showPost'],
         "add_comment.html"          => ["controller" => 'CommentController', "method" => 'addComment'],
         "delete_comment.html"       => ["controller" => 'CommentController', "method" => 'deleteComment'],
         "report_comment.html"       => ["controller" => 'CommentController', "method" => 'reportComment'],

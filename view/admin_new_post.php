@@ -1,7 +1,7 @@
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 			<div id="new_post" class="tab-pane active fade show">
-				<form class="panel-primary" method="post" enctype="multipart/form-data" action="<?php echo HOST.'add_post.html'?>" onsubmit="return validateForm()">
+				<form class="panel-primary" method="post" enctype="multipart/form-data" action="<?= HOST.'add_post.html'?>" onsubmit="return validateForm()">
 
 					<div class="panel-heading">
 						<h2>Nouvelle publication</h2></div>

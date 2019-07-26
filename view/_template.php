@@ -11,7 +11,7 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-	<link href="<?php echo CSS.'style.css'?>" rel="stylesheet" />
+	<link href="<?= CSS.'style.css'?>" rel="stylesheet" />
 
 	<title>Le blog de Jean</title>
 
@@ -19,7 +19,7 @@
 <header>
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 		<div class="container">
-			<a class="navbar-brand" href='<?php echo HOST."home.html"?>'>Jean On The Road</a>
+			<a class="navbar-brand" href='<?= HOST."home.html"?>'>Jean On The Road</a>
 			<button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				Menu
 				<i class="fas fa-bars"></i>
@@ -27,16 +27,16 @@
 			<div class="navbar-collapse collapse" id="navbarResponsive" style="">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo HOST.$link_1?>"><?php echo $link_name_1?></a>
+						<a class="nav-link" href="<?= HOST.$link_1?>"><?= $link_name_1?></a>
 					</li>
-					<li <?php echo $display?> class="nav-item">
-						<a class="nav-link" href="<?php echo HOST.$link_2?>"><?php echo $link_name_2?></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="<?php echo HOST.$link_3?>"><?php echo $link_name_3?></a>
+					<li <?= $display?> class="nav-item">
+						<a class="nav-link" href="<?= HOST.$link_2?>"><?= $link_name_2?></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo HOST.'contact.html'?>">Contact</a>
+						<a class="nav-link" href="<?= HOST.$link_3?>"><?= $link_name_3?></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= HOST.'contact.html'?>">Contact</a>
 					</li>
 				</ul>
 			</div>
@@ -44,13 +44,13 @@
 	</nav>
 </header>
 
-<?php echo $contentPage ;?>
+<?= $contentPage ;?>
 
 <hr>
 
 <footer>
 	<div class="connected-user">
-		<?php echo $user_link?>
+		<?= $user_link?>
 	</div>
 	<div class="container">
 		<div class="row">
@@ -90,6 +90,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<script src="<?php echo JS.'button_confirm.js'?>" type="text/javascript"></script>
+<script src="<?= JS.'button_confirm.js'?>" type="text/javascript"></script>
 </body>
 </html>

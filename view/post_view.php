@@ -6,13 +6,13 @@
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-preview">
                     <?php if ($post->image()) {
-                    ?>
-                    <br>
-                    <div class="text-center">
-                    <img class="img-thumbnail" src="<?php echo HOST.$post->image()?>">
-                    </div>
+                        ?>
+                        <br>
+                        <div class="text-center">
+                            <img class="img-thumbnail" src="<?= HOST.$post->image()?>">
+                        </div>
 
-                   <?php } ?>
+                    <?php } ?>
                     <h2 class="post-title">
                         <?= htmlspecialchars($post->title()) ?>
 
@@ -61,9 +61,9 @@
                         <div class="user_bar"><strong><?= htmlspecialchars($comment->author()) ?></strong><p> le <?= $comment->comment_date() ?></p></div>
                         <p><?= nl2br(htmlspecialchars($comment->comment())) ?></p>
                         <div class="text-right">
-                            <form method="POST" action="<?php echo HOST.'report_comment.html'?>">
+                            <form method="POST" action="<?= HOST.'report_comment.html'?>">
 
-                                <button type="submit" class="btn btn-primary btn-report btn-show-alert" name="comment_id" value="<?php echo $comment->id()?>">Signaler "<?php echo $comment->reports()?>"</button>
+                                <button type="submit" class="btn btn-primary btn-report btn-show-alert" name="comment_id" value="<?= $comment->id()?>">Signaler "<?= $comment->reports()?>"</button>
                             </form>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
 
-                <form class="panel-primary news" method="post" action="<?php echo HOST.'add_comment.html?get_post_id='?><?= $post->id()?>">
+                <form class="panel-primary news" method="post" action="<?= HOST.'add_comment.html?get_post_id='?><?= $post->id()?>">
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
 

@@ -1,11 +1,9 @@
 <?php
-/**
- * 
- */
+
 class PostController extends Database
 {
 
-	public function showPosts() {
+	public function showPost() {
 
 		if(isset($_GET['get_post_id'])){
 			$post_id = $_GET['get_post_id'];
@@ -34,13 +32,14 @@ class PostController extends Database
 	}
 	
 	public function addPost() {
-		if (strlen($_POST['title'])>0 && strlen($_POST['content'])>0)
-		{
+
+		if (strlen($_POST['title'])>0 && strlen($_POST['content'])>0) {
+
 			$post_manager = new PostManager();
 			$post = new Post();
 			$post->setTitle($_POST['title']);
 			$post->setContent($_POST['content']);
-
+			// Check if there is an image added to the post or not
 			$this->checkImage($post);
 
 			$post_manager->add($post);
@@ -53,19 +52,24 @@ class PostController extends Database
 		}
 	}
 
-	public function deletePost(){
-		if (isset($_POST['post_id'])){
+	public function deletePost() {
+
+		if (isset($_POST['post_id'])) {
+
 			$post_id = $_POST['post_id'];
 
 			$post_manager = new PostManager();
 			$post = $post_manager->get($post_id);
 			$post_manager->delete($post);
+
 			header('Location: '.HOST.'admin.html');
 		}
 	}
 
 	public function updatePostForm() {
-		if (isset($_POST['post_id'])){
+
+		if (isset($_POST['post_id'])) {
+
 			$post_id = $_POST['post_id'];
 
 			$post_manager = new PostManager();
@@ -75,18 +79,20 @@ class PostController extends Database
 			$myView->render(array(
 
 				'post' => $post, 
+
 			));
 		}
 	}
 
 	public function updatePost() {
+
 		if (strlen($_POST['title'])>0 && strlen($_POST['content'])>0 && isset($_GET['get_post_id']))
 		{
 			$post_manager = new PostManager();
 			$post = $post_manager->get($_GET['get_post_id']);
 
 			if($post->image()) 
-			{
+			{// Must use the ROOT and not the HOST
 				$image_to_delete = ROOT.$post->image();
 
 				if (file_exists($image_to_delete)) {
@@ -106,23 +112,26 @@ class PostController extends Database
 			header('Location: '.HOST.'admin.html');
 
 		}
-		else {
-			echo "Title ou content incorrects";
+		else 
+		{
+			echo "Titre, contenu ou ID incorrects";
 		}
 
 	}
 
 	function checkImage($post){
+
 		if (file_get_contents($_FILES['image']["tmp_name"]) !== NULL) {
 			$folder = 'public/img/';
 			$uploaddir = ROOT.$folder;
 			$uploadfile = $uploaddir . basename($_FILES['image']['name'] . time());
 
 			if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
-				echo "File is valid, and was successfully uploaded.\n";
+				// Timestamp added to the name of the image to avoid duplicating
 				$post->setImage($folder . basename($_FILES['image']['name']) . time());
+
 			} else {
-				echo "Upload failed";
+				echo "L'upload de l'image a rencontré une erreur";
 			}
 
 		}

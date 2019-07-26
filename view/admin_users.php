@@ -11,7 +11,7 @@
 		</div>
 		<div><p>Créé le : <?= $ad_user->creation_date()?></p></div>
 
-		<form method="POST" action="<?php echo HOST.'delete_user.html'?>">
+		<form method="POST" action="<?= HOST.'delete_user.html'?>">
 
 			<button type="submit" class="btn btn-danger btn-show-alert" name="user_nickname" value="<?= $ad_user->nickname()?>">Supprimer</button>
 		</form>

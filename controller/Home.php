@@ -1,7 +1,5 @@
 <?php 
-/**
- * 
- */
+
 class Home  extends Database
 {
 
@@ -22,7 +20,7 @@ class Home  extends Database
 			'comment_manager' 	=> $comment_manager));
 
 	}
-
+	// If you try to get to the admin page
 	public function showAdmin() {
 
 		if(!isset($_SESSION)) 
@@ -35,7 +33,7 @@ class Home  extends Database
 			$user_manager = new UserManager();
 			$session_user = $user_manager->get($_SESSION['nickname']);
 			$session_user_role = $session_user->role();
-
+			// You're an admin
 			if ($session_user_role = 'admin') {
 
 				$comments = array();
@@ -55,11 +53,11 @@ class Home  extends Database
 					'users'				=> $users,
 					'comments'			=> $comments,
 				));
-			}else {
+			}else { // You're not an admin
 				header('Location: '.HOST.'home.html');
 			}
 
-		}else {
+		}else { // You're not connected
 			header('Location: '.HOST.'home.html');
 		}
 	}

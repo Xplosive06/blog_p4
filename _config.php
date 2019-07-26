@@ -9,7 +9,7 @@ class MyAutoload
     {
         
         spl_autoload_register(array(__CLASS__, 'autoload'));
-        
+        // define the HOST et ROOT routes
         $root = $_SERVER['DOCUMENT_ROOT'];
         $host = $_SERVER['HTTP_HOST'];
 
@@ -25,7 +25,7 @@ class MyAutoload
         define('JS', HOST.'public/js/');
         define('IMG', HOST.'public/img/');
     }
-
+    // try to find and load when you use a controller, a classe or a model
     public static function autoload($class)
     {
         if(file_exists(CONTROLLER.$class.'.php'))

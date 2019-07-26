@@ -1,7 +1,7 @@
 <body>
 
   <!-- Page Header -->
-  <header class="new-header contact-header" style='background-image: url("<?php echo IMG.'contact-bg.jpg'?>")'>
+  <header class="new-header contact-header" style='background-image: url("<?= IMG.'contact-bg.jpg'?>")'>
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="page-heading page-heading-contact">

@@ -2,7 +2,7 @@
     <div class="bloc-page">
 
         <header>
-            <div class="new-header" style='background-image: url("<?php echo IMG.'mast-header.jpg'?>")'>
+            <div class="new-header" style='background-image: url("<?= IMG.'mast-header.jpg'?>")'>
 
                 <!-- <div class="overlay"></div> -->
                 <div class="container">
@@ -31,7 +31,7 @@
                 ?>
 
                 <div class="post-preview post-preview-home">
-                    <a href="<?php echo HOST.'post.html?get_post_id='?><?= $post->id() ?>">
+                    <a href="<?= HOST.'post.html?get_post_id='?><?= $post->id() ?>">
                         <h2 class="post-title">
                             <?= htmlspecialchars($post->title()); ?>
                         </h2>

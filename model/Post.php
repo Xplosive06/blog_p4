@@ -1,4 +1,5 @@
 <?php
+
 class Post
 {
 	private $_id;
@@ -55,8 +56,8 @@ class Post
 	public function getPreview()
 	{
 
-		if(strlen($this->content()) > 200){
-
+		if(strlen($this->content()) > 200) {
+			// Find the first ' ' in the string and get the 200 firsts caracters
 			$pos = strpos($this->content(), ' ', 200);
 			$result = substr($this->content(), 0, $pos); 
 
