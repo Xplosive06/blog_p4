@@ -15,12 +15,12 @@
 						<div class="control-group">
 							<div class="form-group floating-label-form-group controls">
 								<label for="password">Mot de passe: </label><input class="form-control" id="password" type="password" name="password"
-								placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="new-password" title="Le mot de passe doît contenir au moins : un chiffre, une majuscule, une minuscule et 8 caractères minimum" required></input>
+								placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="new-password" title="Le mot de passe doît contenir au moins : un chiffre, une majuscule, une minuscule et 8 caractères minimum" required>
 							</div>
 						</div>
 						<div class="control-group">
 							<div class="form-group floating-label-form-group controls">
-								<label for="password-confirmation">Confirmation: </label><input class="input-sm" placeholder="Confirmation" id="password-confirmation" type="password" name="password-confirmation" autocomplete="new-password" required></input>
+								<label for="password-confirmation">Confirmation: </label><input class="input-sm" placeholder="Confirmation" id="password-confirmation" type="password" name="password-confirmation" autocomplete="new-password" required>
 							</div>
 						</div>
 						<div class="flex-space">

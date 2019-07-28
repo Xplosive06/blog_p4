@@ -48,7 +48,7 @@ class View
         { 
             session_start(); 
         }
-        
+        // The 4th link is always "contact"
         $request = $_GET['r'];
         $user_link = 'Non connecté'; // user is not connected
         $link_2 = ''; 

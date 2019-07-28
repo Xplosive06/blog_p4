@@ -12,7 +12,7 @@
 						</div>
 						<div class="control-group">
 							<div class="form-group floating-label-form-group controls">
-								<label for="password">Mot de passe: </label><input class="form-control" id="password" placeholder="Mot de passe" type="password" name="password" required></input>
+								<label for="password">Mot de passe: </label><input class="form-control" id="password" placeholder="Mot de passe" type="password" name="password" required>
 							</div>
 						</div>
 						<div class="flex-space connection-buttons">

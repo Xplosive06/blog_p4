@@ -16,7 +16,7 @@ class ConnectionController extends Database
 
 	// Compared sended pass to pass in db
 			$isPasswordCorrect = password_verify($_POST['password'], $check_user->password());
-			// If OK : start the session with the good nicknaùe
+			// If OK : start the session with the good nickname
 			if ($isPasswordCorrect) {
 				session_start();
 				$_SESSION['nickname'] = $check_user->nickname();

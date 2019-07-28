@@ -1,20 +1,15 @@
-<body>
-
-  <!-- Page Header -->
-  <header class="new-header contact-header" style='background-image: url("<?= IMG.'contact-bg.jpg'?>")'>
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="page-heading page-heading-contact">
-          <h1>Contactez moi</h1>
-          <span class="subheading">Vous avez des questions ? J'ai des réponses.</span>
-        </div>
+<header class="new-header contact-header" style="background-image: url('<?= IMG.'contact-bg.jpg'?>')">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="page-heading page-heading-contact">
+        <h1>Contactez moi</h1>
+        <span class="subheading">Vous avez des questions ? J'ai des réponses.</span>
       </div>
     </div>
   </div>
 </header>
 <hr>
 
-<!-- Main Content -->
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
