@@ -34,7 +34,7 @@ class Home  extends Database
 			$session_user = $user_manager->get($_SESSION['nickname']);
 			$session_user_role = $session_user->role();
 			// You're an admin
-			if ($session_user_role = 'admin') {
+			if ($session_user_role === 'admin') {
 
 				$comments = array();
 
@@ -54,6 +54,7 @@ class Home  extends Database
 					'comments'			=> $comments,
 				));
 			}else { // You're not an admin
+						echo "PAS ADMINISTRATEUR";
 				header('Location: '.HOST.'home.html');
 			}
 

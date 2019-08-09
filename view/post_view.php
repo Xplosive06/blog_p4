@@ -27,7 +27,7 @@
 
                         if($comment_manager->getNumberOfComments($post->id())>1){echo 's';}?></span></em>
 
-                        <em>le <?= $post->creation_date()?></em>
+                        <em>le <?= $post->creation_date_formatted()?></em>
 
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                 ?>
                 <div class="post-preview bordering-comment">
 
-                    <div class="user_bar"><strong><?= htmlspecialchars($comment->author()) ?></strong><p> le <?= $comment->comment_date() ?></p></div>
+                    <div class="user_bar"><strong><?= htmlspecialchars($comment->author()) ?></strong><p> le <?= $comment->comment_date_formatted() ?></p></div>
                     <p><?= nl2br(htmlspecialchars($comment->comment())) ?></p>
                     <div class="text-right">
                         <form method="POST" action="<?= HOST.'report_comment.html'?>">

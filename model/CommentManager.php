@@ -39,8 +39,9 @@
     public function getList($post_id, $order_by = 'comment_date', $desc_or_asc = 'DESC')
     {
       $comments = [];
+      $test = 0;
 
-      $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%i") AS comment_date FROM comments WHERE post_id = '.$post_id.' ORDER BY '.$order_by.' '.$desc_or_asc.'');
+      $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%i") AS comment_date_formatted FROM comments WHERE post_id = '.$post_id.' ORDER BY '.$order_by.' '.$desc_or_asc.'');
 
       while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
       {
@@ -54,7 +55,7 @@
     {
       $comments = [];
 
-      $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%i") AS comment_date FROM comments WHERE author = "'.$author.'" ORDER BY comment_date DESC');
+      $q = $this->_db->query('SELECT id, post_id, author, comment, reports, comment_date FROM comments WHERE author = "'.$author.'" ORDER BY comment_date DESC');
 
       while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
       {

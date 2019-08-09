@@ -7,8 +7,8 @@
               <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                   <div class="page-heading b-left">
-                    <h1>Blog de Jean</h1>
-                    <span class="subheading">Mon blog de voyage</span>
+                    <h1>Billet simple pour l'Alaska</h1>
+                    <span class="subheading">Jean Forteroche</span>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
 
                             if($comment_manager->getNumberOfComments($post->id())>1){echo 's';}?></span></em>
 
-                            <em>le <?= $post->creation_date()?></em>
+                            <em>le <?= $post->creation_date_formatted()?></em>
 
                         </div>
 

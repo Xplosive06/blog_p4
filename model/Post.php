@@ -6,7 +6,7 @@ class Post
 	private $_title;
 	private $_content;
 	private $_image;
-	private $_creation_date;
+	private $_creation_date_formatted;
 
 	public function __construct($value = array())
 	{
@@ -48,9 +48,9 @@ class Post
 		return $this->_image;
 	}
 	
-	public function creation_date()
+	public function creation_date_formatted()
 	{
-		return $this->_creation_date;
+		return $this->_creation_date_formatted;
 	}
 
 	public function getPreview()
@@ -105,9 +105,9 @@ class Post
 
 	}
 
-	public function setCreation_date($creation_date)
+	public function setCreation_date_formatted($creation_date_formatted)
 	{
-		$this->_creation_date = $creation_date;
+		$this->_creation_date_formatted = $creation_date_formatted;
 
 	}
 	

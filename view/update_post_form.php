@@ -31,7 +31,7 @@
 		<div class="control-group">
 
 			<label for="content">Contenu : </label>
-			<textarea class="input-lg" id="content" type="text" name="content"><?= $post->content()?></textarea>
+			<textarea class="input-lg" id="content" type="text" name="content"><?= htmlspecialchars($post->content())?></textarea>
 
 			<button type="submit" class="btn btn-primary">Envoyer</button>
 

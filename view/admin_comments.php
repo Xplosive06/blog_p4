@@ -11,7 +11,7 @@
 				<div class="post-preview bordering-comment">
 
 					
-					<div class="user_bar"><strong><?= htmlspecialchars($comment->author()) ?></strong><p> le <?= $comment->comment_date() ?></p></div>
+					<div class="user_bar"><strong><?= htmlspecialchars($comment->author()) ?></strong><p> le <?= $comment->comment_date_formatted() ?></p></div>
 					<p><?= nl2br(htmlspecialchars($comment->comment())) ?></p>
 					<div class="text-left">
 						<p>Signalé : <?= $comment->reports()?> fois</p>	

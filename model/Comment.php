@@ -5,7 +5,7 @@ class Comment
 	private $_post_id;
 	private $_author;
 	private $_comment;
-	private $_comment_date;
+	private $_comment_date_formatted;
 	private $_reports;
 
 	public function __construct($value = array())
@@ -48,9 +48,9 @@ class Comment
 		return $this->_comment;
 	}
 	
-	public function comment_date()
+	public function comment_date_formatted()
 	{
-		return $this->_comment_date;
+		return $this->_comment_date_formatted;
 	}
 
 	public function reports()
@@ -98,9 +98,9 @@ class Comment
 		}
 	}
 
-	public function setComment_date($comment_date)
+	public function setComment_date_formatted($comment_date_formatted)
 	{
-		$this->_comment_date = $comment_date;
+		$this->_comment_date_formatted = $comment_date_formatted;
 	}
 
 	public function setReports($reports)

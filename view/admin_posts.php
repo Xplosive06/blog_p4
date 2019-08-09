@@ -9,7 +9,7 @@
 
 			<p>
 				<p><strong>Titre : </strong><?= htmlspecialchars($post->title()); ?></p>
-				<em><strong>le</strong> <?= $post->creation_date()?></em>
+				<em><strong>le</strong> <?= $post->creation_date_formatted()?></em>
 			</p>
 
 			<p><strong>Contenu :</strong>
