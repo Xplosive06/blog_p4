@@ -100,6 +100,7 @@ class PostController extends Database
 				} else {
 					echo " L'image n'existe pas ou plus";
 				}
+				$post->setImage(NULL);
 			}
 
 			$post->setTitle($_POST['title']);

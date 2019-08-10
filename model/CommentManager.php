@@ -36,17 +36,20 @@
       
     }
 
-    public function getList($post_id, $order_by = 'comment_date', $desc_or_asc = 'DESC')
+    public function getList($post_id)
     {
       $comments = [];
-      $test = 0;
 
-      $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%i") AS comment_date_formatted FROM comments WHERE post_id = '.$post_id.' ORDER BY '.$order_by.' '.$desc_or_asc.'');
+      $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%i") AS comment_date_formatted FROM comments WHERE post_id = '.$post_id.' ORDER BY comment_date DESC');
+    
+
+      $test = 0;
 
       while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
       {
         $comments[] = new Comment($donnees);
       }
+
 
       return $comments;
     }
@@ -64,6 +67,22 @@
 
       return $comments;
     }
+
+    public function getCommentByReports()
+    {
+      $comments = [];
+
+      $q = $this->_db->query('SELECT id, post_id, author, comment, reports, DATE_FORMAT(comment_date, "%d/%m/%Y à %Hh%i") AS comment_date_formatted FROM comments ORDER BY reports DESC');
+
+      while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+      {
+        $comments[] = new Comment($donnees);
+      }
+
+      return $comments;
+    }
+
+
     //Change the name of the deleted User
     public function deleteAuthorName($author)
     {

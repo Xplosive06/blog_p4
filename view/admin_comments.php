@@ -1,15 +1,14 @@
 <div id="comments" class="tab-pane panel-primary fade">
 	<h2>Les commentaires signalés</h2>
 	<?php 
-	foreach ($posts as $key => $post) {
 
-		$comments = $comment_manager->getList($post->id(), 'reports');
+		$comments = $comment_manager->getCommentByReports();
+
 		foreach ($comments as $key => $comment) {
 			if($comment->reports() > 0){
 
 				?>
 				<div class="post-preview bordering-comment">
-
 					
 					<div class="user_bar"><strong><?= htmlspecialchars($comment->author()) ?></strong><p> le <?= $comment->comment_date_formatted() ?></p></div>
 					<p><?= nl2br(htmlspecialchars($comment->comment())) ?></p>
@@ -28,5 +27,4 @@
 				<br>
 			<?php }?>
 		<?php }?>
-	<?php } ?>
 </div>
