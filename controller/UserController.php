@@ -2,15 +2,13 @@
 /**
  * 
  */
-class UserController extends Database
+class UserController
 {
 	
 	public function addUser(){
 		if (isset($_POST['nickname']) && isset($_POST['password'])) {	
 
-			$db = $this->getDb();
-
-			$user_manager = new UserManager($db);
+			$user_manager = new UserManager();
 			$users_list = $user_manager->getList();
 
 			$checker = 0;
@@ -49,8 +47,8 @@ class UserController extends Database
 
 		if(isset($_POST['user_nickname'])) {
 
-			$comment_manager = new CommentManager($this->getDb());
-			$user_manager = new UserManager($this->getDb());
+			$comment_manager = new CommentManager();
+			$user_manager = new UserManager();
 
 			$user = $user_manager->get($_POST['user_nickname']);
 			//Change the name of the deleted User

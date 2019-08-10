@@ -1,6 +1,6 @@
 <?php 
 
-class CommentController extends Database
+class CommentController
 {
 
 	public function addComment() {
@@ -8,9 +8,7 @@ class CommentController extends Database
 		// If user is connected and post does exist
 		if (strlen($_POST['comment']) && isset($_SESSION['nickname']) && isset($_GET['get_post_id'])){
 
-			$db = $this->getDb();
-
-			$comment_manager = new CommentManager($db);
+			$comment_manager = new CommentManager();
 			$new_comment = new Comment();
 
 			$new_comment->setComment($_POST['comment']);
@@ -28,9 +26,7 @@ class CommentController extends Database
 
 	public function deleteComment(){
 
-		$db = $this->getDb();
-
-		$comment_manager = new CommentManager($db);
+		$comment_manager = new CommentManager();
 		$comment_manager->delete($_POST['comment_id']);
 
 		header('Location: '.HOST.'admin.html');
@@ -39,7 +35,7 @@ class CommentController extends Database
 	public function reportComment(){
 		$db = $this->getDb();
 
-		$comment_manager = new CommentManager($db);
+		$comment_manager = new CommentManager();
 		$comment = $comment_manager->get($_POST['comment_id']);
 
 		$comment->reported();

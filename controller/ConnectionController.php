@@ -1,17 +1,15 @@
 <?php
 
-class ConnectionController extends Database
+class ConnectionController
 {
 
 	public function checkConnection(){
 		if (isset($_POST['nickname']) && isset($_POST['password']))
 		{	
 
-			$db = $this->getDb();
-
 			$user_nickname = $_POST['nickname'];
 
-			$user_manager = new UserManager($db);
+			$user_manager = new UserManager();
 			$check_user = $user_manager->get($user_nickname);
 
 	// Compared sended pass to pass in db

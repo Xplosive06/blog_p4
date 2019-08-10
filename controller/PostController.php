@@ -1,6 +1,6 @@
 <?php
 
-class PostController extends Database
+class PostController
 {
 
 	public function showPost() {

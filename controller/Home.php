@@ -1,14 +1,12 @@
 <?php 
 
-class Home  extends Database
+class Home
 {
 
 	public function showHome() {
 		
-		$db = $this->getDb();
-		
-		$comment_manager = new CommentManager($db);
-		$post_manager = new PostManager($db);
+		$comment_manager = new CommentManager();
+		$post_manager = new PostManager();
 		$posts = $post_manager->getList();
 
 		
